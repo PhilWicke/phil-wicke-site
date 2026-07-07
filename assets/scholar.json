@@ -1,5 +1,5 @@
 {
-  "citations": 907,
+  "citations": 909,
   "hindex": 12,
   "i10index": 15,
   "perYear": [
@@ -9,7 +9,7 @@
     },
     {
       "year": 2019,
-      "n": 4
+      "n": 5
     },
     {
       "year": 2020,
@@ -21,15 +21,15 @@
     },
     {
       "year": 2022,
-      "n": 187
+      "n": 184
     },
     {
       "year": 2023,
-      "n": 137
+      "n": 139
     },
     {
       "year": 2024,
-      "n": 140
+      "n": 139
     },
     {
       "year": 2025,
@@ -37,7 +37,7 @@
     },
     {
       "year": 2026,
-      "n": 69
+      "n": 72
     }
   ],
   "papers": [
@@ -87,6 +87,15 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:aqlVkmm33-oC"
     },
     {
+      "title": "Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI",
+      "id": "LkGwnXOMwfcC",
+      "authors": "R Ramanayake, P Wicke, V Nallur",
+      "venue": "Ai & Society",
+      "year": "2023",
+      "citations": 20,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC"
+    },
+    {
       "title": "Interview with the Robot: Question-Guided Collaboration in a Storytelling System.",
       "id": "9yKSN-GCB0IC",
       "authors": "P Wicke, T Veale",
@@ -94,15 +103,6 @@
       "year": "2018",
       "citations": 20,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9yKSN-GCB0IC"
-    },
-    {
-      "title": "Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI",
-      "id": "LkGwnXOMwfcC",
-      "authors": "R Ramanayake, P Wicke, V Nallur",
-      "venue": "Ai & Society",
-      "year": "2023",
-      "citations": 19,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC"
     },
     {
       "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
@@ -132,6 +132,15 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u5HHmVD_uO8C"
     },
     {
+      "title": "Creative action at a distance: A conceptual framework for embodied performance with robotic actors",
+      "id": "ufrVoPGSRksC",
+      "authors": "P Wicke, T Veale",
+      "venue": "Frontiers in Robotics and AI",
+      "year": "2021",
+      "citations": 13,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ufrVoPGSRksC"
+    },
+    {
       "title": "Exploring Spatial Schema Intuitions in Large Language and Vision Models",
       "id": "YOwf2qJgpHMC",
       "authors": "P Wicke, L Wachowiak",
@@ -139,15 +148,6 @@
       "year": "2024",
       "citations": 12,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC"
-    },
-    {
-      "title": "Creative action at a distance: A conceptual framework for embodied performance with robotic actors",
-      "id": "ufrVoPGSRksC",
-      "authors": "P Wicke, T Veale",
-      "venue": "Frontiers in Robotics and AI",
-      "year": "2021",
-      "citations": 12,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ufrVoPGSRksC"
     },
     {
       "title": "LMs stand their ground: Investigating the effect of embodiment in figurative language interpretation by language models",
@@ -384,6 +384,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UebtZRa9Y70C"
     }
   ],
-  "updated": "2026-06-28",
+  "updated": "2026-07-07",
   "source": "scholar"
 }
