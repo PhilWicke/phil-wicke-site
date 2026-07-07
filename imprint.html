@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impressum · Philipp Wicke</title>
+<meta name="robots" content="noindex,follow">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1b22;--accent:#3b4ea0;--paper:#f7f8fb;--ink-soft:#474b57;--ink-mute:#5f6478;--rule:#d2d8e6;--rule-soft:#e6eaf3;--line:#2a3666;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"IBM Plex Mono",ui-monospace,monospace;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.bar{position:sticky;top:0;z-index:10;background:rgba(247,248,251,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.bar .row{max-width:1000px;margin:0 auto;padding:0 clamp(20px,4vw,48px);height:50px;display:flex;align-items:center;justify-content:space-between;}
+.bar a.back{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;}
+.bar a.back:hover{color:var(--accent);}
+.bar .pg{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(20px,4vw,48px);}
+.head{padding:clamp(34px,6vw,60px) 0 4px;}
+.head .kick{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+.head h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(38px,7vw,72px);line-height:1;margin:6px 0 0;letter-spacing:.005em;color:var(--line);}
+.head p{margin:14px 0 0;font-family:"Newsreader",Georgia,serif;font-size:15px;color:var(--ink-soft);line-height:1.55;max-width:64ch;}
+.head p a{color:var(--accent);}
+.grp{border-top:2px solid var(--line);border-image:linear-gradient(90deg,var(--line) 55%,rgba(42,54,102,.25) 85%,transparent 100%) 1;margin-top:30px;}
+.grp .gh{font-size:13px;font-weight:500;color:var(--accent);padding:12px 0 4px;letter-spacing:.04em;}
+.e{display:grid;grid-template-columns:104px 1fr auto;gap:16px;align-items:baseline;padding:11px 0;border-top:1px solid var(--rule-soft);}
+.e:first-of-type{border-top:0;}
+.e .mo{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);padding-top:3px;}
+.e .d{font-family:"Instrument Serif",serif;font-size:16.5px;line-height:1.32;color:var(--ink);}
+.e .d a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(59,78,160,.32);}
+.e .d a:hover{border-bottom-color:var(--accent);}
+.e .ty{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);border:1px solid var(--rule);padding:2px 7px;white-space:nowrap;align-self:start;margin-top:3px;}
+.pub{display:grid;grid-template-columns:1fr auto;gap:22px;padding:15px 0;border-top:1px solid var(--rule-soft);align-items:start;}
+.pub:first-of-type{border-top:0;}
+.pub-t{font-family:"Instrument Serif",serif;font-size:18px;line-height:1.28;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(59,78,160,.28);}
+.pub-t:hover{color:var(--accent);border-bottom-color:var(--accent);}
+.pub-au{font-family:"Newsreader",Georgia,serif;font-size:13.5px;color:var(--ink-mute);margin-top:5px;line-height:1.45;}
+.pub-au b{color:var(--ink-soft);font-weight:600;}
+.pub-ex{font-family:"Newsreader",Georgia,serif;font-size:14px;line-height:1.5;color:var(--ink-soft);margin-top:7px;max-width:74ch;}
+.pub-cit{font-family:"IBM Plex Mono",monospace;text-align:right;white-space:nowrap;padding-top:4px;}
+.pub-cit b{font-size:13px;color:var(--ink-soft);font-weight:500;}
+.pub-cit span{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);margin-top:1px;}
+.grp p{font-family:"Newsreader",Georgia,serif;font-size:14.5px;line-height:1.6;color:var(--ink-soft);padding:9px 0 3px;max-width:80ch;}
+.grp p a{color:var(--accent);}
+.grp p b{color:var(--ink);font-weight:500;}
+.foot a{color:var(--ink-mute);border-bottom:1px solid var(--rule);}.foot a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+@media (max-width:620px){.pub{grid-template-columns:1fr;}.pub-cit{text-align:left;padding-top:2px;}}
+@media print{
+  .bar,.foot{display:none;}
+  body{background:#fff;color:#000;}
+  .head{padding-top:0;}
+  .head h1,.pub-t,.e .d{color:#000;}
+  .grp{border-image:none;border-top:1.5pt solid #000;}
+  .grp .gh{color:#000;}
+  .pub,.e{break-inside:avoid;}
+  .pub-t{border-bottom:0;}
+  a{color:#000;text-decoration:none;border-bottom:0 !important;}
+  .pub-au,.pub-ex,.e .mo{color:#333;}
+  .head .kick{color:#333;}
+  .head p a,.grp p a,.e .d a{color:#000;}
+}
+.foot{margin-top:60px;border-top:2px solid var(--line);}
+.foot .row{max-width:1000px;margin:0 auto;padding:20px clamp(20px,4vw,48px);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+@media (max-width:620px){.e{grid-template-columns:1fr auto;}.e .mo{grid-column:1/-1;}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="row"><a class="back" href="index.html">&larr; Philipp Wicke</a><span class="pg">Impressum</span></div></header>
+<main class="wrap">
+<div class="head"><div class="kick">Legal notice</div><h1>Impressum</h1><p>Pflichtangaben nach deutschem Recht (&sect; 5 DDG). Legal notice as required under German law.</p></div>
+<section class="grp"><div class="gh">Angaben gem&auml;&szlig; &sect; 5 DDG</div><p>Philipp Wicke</p><p id="addr" style="margin-top:6px;"><noscript><img src="assets/e5b1.svg" alt="Anschrift"></noscript></p><script>document.getElementById('addr').insertAdjacentHTML('afterbegin','<img src="assets/'+['e5','b1'].join('')+'.svg" alt="Anschrift">');</script></section><section class="grp"><div class="gh">Kontakt</div><p>E&#8209;Mail: philippwicke.contact&#8202;[at]&#8202;gmail.com</p></section><section class="grp"><div class="gh">Redaktionell verantwortlich (&sect; 18 Abs. 2 MStV)</div><p>Philipp Wicke, Anschrift wie oben.</p></section><section class="grp"><div class="gh">Haftung und Urheberrecht</div><p>Die eigenen Inhalte dieser Website wurden sorgf&auml;ltig erstellt; eine Gew&auml;hr f&uuml;r Richtigkeit und Vollst&auml;ndigkeit kann ich jedoch nicht &uuml;bernehmen. F&uuml;r die Inhalte verlinkter externer Seiten ist deren jeweiliger Anbieter verantwortlich; werde ich auf eine Rechtsverletzung aufmerksam, entferne ich die betreffenden Inhalte oder Links umgehend. Meine eigenen Inhalte unterliegen dem deutschen Urheberrecht, eine Nutzung &uuml;ber dessen gesetzliche Grenzen hinaus bedarf meiner Zustimmung.</p></section>
+</main>
+<footer class="foot"><div class="row"><span>Philipp Wicke, Berlin</span><span><a href="imprint.html">Impressum</a> &middot; &copy; 2026</span></div></footer>
+</body>
+</html>

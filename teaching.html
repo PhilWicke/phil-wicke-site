@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teaching · Philipp Wicke</title>
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1b22;--accent:#3b4ea0;--paper:#f7f8fb;--ink-soft:#474b57;--ink-mute:#5f6478;--rule:#d2d8e6;--rule-soft:#e6eaf3;--line:#2a3666;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"IBM Plex Mono",ui-monospace,monospace;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.bar{position:sticky;top:0;z-index:10;background:rgba(247,248,251,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.bar .row{max-width:1000px;margin:0 auto;padding:0 clamp(20px,4vw,48px);height:50px;display:flex;align-items:center;justify-content:space-between;}
+.bar a.back{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;}
+.bar a.back:hover{color:var(--accent);}
+.bar .pg{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(20px,4vw,48px);}
+.head{padding:clamp(34px,6vw,60px) 0 4px;}
+.head .kick{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+.head h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(38px,7vw,72px);line-height:1;margin:6px 0 0;letter-spacing:.005em;color:var(--line);}
+.head p{margin:14px 0 0;font-family:"Newsreader",Georgia,serif;font-size:15px;color:var(--ink-soft);line-height:1.55;max-width:64ch;}
+.head p a{color:var(--accent);}
+.grp{border-top:2px solid var(--line);border-image:linear-gradient(90deg,var(--line) 55%,rgba(42,54,102,.25) 85%,transparent 100%) 1;margin-top:30px;}
+.grp .gh{font-size:13px;font-weight:500;color:var(--accent);padding:12px 0 4px;letter-spacing:.04em;}
+.e{display:grid;grid-template-columns:104px 1fr auto;gap:16px;align-items:baseline;padding:11px 0;border-top:1px solid var(--rule-soft);}
+.e:first-of-type{border-top:0;}
+.e .mo{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);padding-top:3px;}
+.e .d{font-family:"Instrument Serif",serif;font-size:16.5px;line-height:1.32;color:var(--ink);}
+.e .d a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(59,78,160,.32);}
+.e .d a:hover{border-bottom-color:var(--accent);}
+.e .ty{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);border:1px solid var(--rule);padding:2px 7px;white-space:nowrap;align-self:start;margin-top:3px;}
+.pub{display:grid;grid-template-columns:1fr auto;gap:22px;padding:15px 0;border-top:1px solid var(--rule-soft);align-items:start;}
+.pub:first-of-type{border-top:0;}
+.pub-t{font-family:"Instrument Serif",serif;font-size:18px;line-height:1.28;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(59,78,160,.28);}
+.pub-t:hover{color:var(--accent);border-bottom-color:var(--accent);}
+.pub-au{font-family:"Newsreader",Georgia,serif;font-size:13.5px;color:var(--ink-mute);margin-top:5px;line-height:1.45;}
+.pub-au b{color:var(--ink-soft);font-weight:600;}
+.pub-ex{font-family:"Newsreader",Georgia,serif;font-size:14px;line-height:1.5;color:var(--ink-soft);margin-top:7px;max-width:74ch;}
+.pub-cit{font-family:"IBM Plex Mono",monospace;text-align:right;white-space:nowrap;padding-top:4px;}
+.pub-cit b{font-size:13px;color:var(--ink-soft);font-weight:500;}
+.pub-cit span{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);margin-top:1px;}
+.grp p{font-family:"Newsreader",Georgia,serif;font-size:14.5px;line-height:1.6;color:var(--ink-soft);padding:9px 0 3px;max-width:80ch;}
+.grp p a{color:var(--accent);}
+.grp p b{color:var(--ink);font-weight:500;}
+.foot a{color:var(--ink-mute);border-bottom:1px solid var(--rule);}.foot a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+@media (max-width:620px){.pub{grid-template-columns:1fr;}.pub-cit{text-align:left;padding-top:2px;}}
+@media print{
+  .bar,.foot{display:none;}
+  body{background:#fff;color:#000;}
+  .head{padding-top:0;}
+  .head h1,.pub-t,.e .d{color:#000;}
+  .grp{border-image:none;border-top:1.5pt solid #000;}
+  .grp .gh{color:#000;}
+  .pub,.e{break-inside:avoid;}
+  .pub-t{border-bottom:0;}
+  a{color:#000;text-decoration:none;border-bottom:0 !important;}
+  .pub-au,.pub-ex,.e .mo{color:#333;}
+  .head .kick{color:#333;}
+  .head p a,.grp p a,.e .d a{color:#000;}
+}
+.foot{margin-top:60px;border-top:2px solid var(--line);}
+.foot .row{max-width:1000px;margin:0 auto;padding:20px clamp(20px,4vw,48px);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+@media (max-width:620px){.e{grid-template-columns:1fr auto;}.e .mo{grid-column:1/-1;}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="row"><a class="back" href="index.html">&larr; Philipp Wicke</a><span class="pg">Teaching</span></div></header>
+<main class="wrap">
+<div class="head"><div class="kick">Full record</div><h1>Teaching</h1><p>Lecturing, invited lectures and courses at the Interdisciplinary College, a decade of tutoring from Osnabr&uuml;ck onward, and supervised theses. A summary of current courses is on the <a href="index.html#teaching">front page</a>.</p></div>
+<section class="grp"><div class="gh">Lecturing</div><div class="e"><div class="mo">2026 - now</div><div class="d">Language Models: Machine Learning Basics to Modern Artificial Intelligence  ·  Artificial Intelligence Program. University BTU Cottbus.</div><div class="ty">Lecture</div></div><div class="e"><div class="mo">2022 - 2026</div><div class="d">Applications of Computational Linguistics  ·  Cognitive Linguistics. Ludwig Maximilian University (LMU).</div><div class="ty">Lecture</div></div><div class="e"><div class="mo">2021 - 2026</div><div class="d">Introduction to Programming  ·  Computational Creativity. Ludwig Maximilian University (LMU).</div><div class="ty">Lecture</div></div><div class="e"><div class="mo">2020</div><div class="d">Coding Class. Free Online Course for Beginner.</div><div class="ty">Lecture</div></div></div><section class="grp"><div class="gh">Invited lectures &amp; Interdisciplinary College</div><div class="e"><div class="mo">2026 · March</div><div class="d"><a href="https://interdisciplinary-college.org/">Interdisciplinary College 2026</a>, Bridging Realities of Brains, Language, and Technology. Chair, Lecturer, Organiser.</div><div class="ty">Interdisciplinary College</div></div><div class="e"><div class="mo">2025 · July</div><div class="d">Center for Advanced Studies (CAS). <a href="https://www.cas.lmu.de/en/events/event/lunch-talk-understanding-of-non-verbal-behavior-by-multimodal-ai-systems.html">Lunch Talk: Understanding of Non-Verbal Behavior by Multimodal AI Systems.</a> Speaker.</div><div class="ty">Invited</div></div><div class="e"><div class="mo">2025 · May</div><div class="d">"<a href="https://aktuell.uni-bielefeld.de/event/philipp-wicke-muenchen-computational-creativity-and-generative-storytelling/">Computational creativity and generative storytelling</a>" Research Colloquium of SFB 1646 "Language Creativity in Communication". University Bielefeld. Invited Speaker.</div><div class="ty">Invited</div></div><div class="e"><div class="mo">2024 · September</div><div class="d">"<a href="https://www.youtube.com/watch?v=dMvE5IjtI7g">Exploring Spatial Intuitions and Analogical Reasoning in Large Language Models</a>". Department of Modern Languages, Literatures, and Cultures, University Bologna. Research Colloquium Talk. Invited Speaker.</div><div class="ty">Invited</div></div><div class="e"><div class="mo">2024 · May</div><div class="d"><a href="https://pages.ucsd.edu/~bkbergen/">Language and Cognition</a> Lab by Prof. Benjamin Bergen. Virtual lab visit and presentation. Lecturer.</div><div class="ty">Invited</div></div><div class="e"><div class="mo">2024 · May</div><div class="d"><a href="https://www.b-tu.de/fg-neuroadaptive-hci">Neuroadaptive HCI</a>, Virtual lab visit and presentation. Invited Speaker.</div><div class="ty">Invited</div></div><div class="e"><div class="mo">2024 · April</div><div class="d">Guest-Lecture at TU Cottbus-Senftenberg: »<a href="https://www.b-tu.de/researchschool/aktuelles/ansicht/26425-default-8b92afc1ed">Introduction to Large Language Models (LLMs) and Prompt Engineering</a>« Lecturer.</div><div class="ty">Guest lecture</div></div><div class="e"><div class="mo">2024 · April</div><div class="d"><a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/studium/studiengaenge/kognitionswissenschaft/forschungskolloquium/">Cognitive Science Colloquium</a>. University Tuebingen. "Embodied Cognitive Linguistics". Lecturer.</div><div class="ty">Invited</div></div><div class="e"><div class="mo">2024 · March</div><div class="d"><a href="https://interdisciplinary-college.org/">Interdisciplinary College 2024</a>, IK 'Robustness, Resilience, Responsibility'. Lecturer, Program Committee Member, Organizer.</div><div class="ty">Interdisciplinary College</div></div><div class="e"><div class="mo">2024 · February</div><div class="d"><a href="https://www.lmu.de/de/studium/beratung-und-orientierung/lmu-erleben/campustage.html">CampusDay at LMU 2024</a>. "Introduction to Programming for Computational Linguistics" Sample Lecture. Lecturer.</div><div class="ty">Invited</div></div><div class="e"><div class="mo">2023 · March</div><div class="d">IK'23 Interdisciplinary College 2023, <a href="https://interdisciplinary-college.org/">Dynamics of Experience – Minds, Bodies, and Things</a>. Organization Team Member, Program Commitee Member and Lecturer.</div><div class="ty">Interdisciplinary College</div></div><div class="e"><div class="mo">2020 · December</div><div class="d"><a href="https://studiegids.vu.nl/en/exchange/2020-2021/L_NCMACIW021">The Power of Metaphor</a> Vrije Universiteit Amsterdam (NL). Guest Lecturer.</div><div class="ty">Guest lecture</div></div><div class="e"><div class="mo">2019 · December</div><div class="d"><a href="https://studiegids.vu.nl/en/exchange/2020-2021/L_NCMACIW021">The Power of Metaphor</a> Vrije Universiteit Amsterdam (NL). Guest Lecturer.</div><div class="ty">Guest lecture</div></div><div class="e"><div class="mo">2018</div><div class="d">Good AIfternoon Colloquium, Radboud University Nijmegen (NL). Introduction to Computational Creativity. Invited Speaker.</div><div class="ty">Invited</div></div></div><section class="grp"><div class="gh">Tutoring &amp; teaching assistance</div><div class="e"><div class="mo">2018 -2020</div><div class="d">Computer Science Support Center, Dept. of Computer Science, University College Dublin.</div><div class="ty">Tutor / TA</div></div><div class="e"><div class="mo">2017 - 2020</div><div class="d">Data Structures and Algorithms I, Programming I, Computer Programming I, Software Engineering, Software Engineering Project (TA), Computational Creativity (TA), Dept. of Computer Science, University College Dublin.</div><div class="ty">Tutor / TA</div></div><div class="e"><div class="mo">2016</div><div class="d">Introduction to Algorithms and Data Structures, Dept. of Computer Science, University Osnabrueck.</div><div class="ty">Tutor / TA</div></div><div class="e"><div class="mo">2015 - 2016</div><div class="d">Software Development, Dept. of Computer Science, University Osnabrueck.</div><div class="ty">Tutor / TA</div></div></div><section class="grp"><div class="gh">Thesis supervision</div><div class="e"><div class="mo">2024</div><div class="d">Challenging Reliability of Multimodal Models as Robotic Agents</div><div class="ty">MSc</div></div><div class="e"><div class="mo">2024</div><div class="d">Raise Your Hands to Surrender? Evaluating Large Language Model’s Understanding of Human Non-Verbal Expressions</div><div class="ty">MSc</div></div><div class="e"><div class="mo">2023</div><div class="d">Once Upon A For-Loop: Generating Textual Stories from Code to Foster Programming Literacy</div><div class="ty">MSc</div></div><div class="e"><div class="mo">2023</div><div class="d">Improvising with Humans and AI - A Collaborative Storytelling System</div><div class="ty">MSc</div></div><div class="e"><div class="mo">2021</div><div class="d">Clarifying QA Generation for Machine Learning Model Construction</div><div class="ty">MSc</div></div><div class="e"><div class="mo">2024</div><div class="d">Assessing Conceptual Blending for Visual Metaphor Generation using Automated Prompt Engineering</div><div class="ty">BSc</div></div><div class="e"><div class="mo">2022</div><div class="d">An Evaluation of Language Model fine-tuning for Stylization of Texts</div><div class="ty">BSc</div></div><div class="e"><div class="mo">2021</div><div class="d">Abstrakte und konkrete Repräsentationen von visuellen Metaphern in Sprachmodellen</div><div class="ty">BSc</div></div><div class="e"><div class="mo">2021</div><div class="d">Probing SOTA Text-To-SQL Systems</div><div class="ty">BSc</div></div></div>
+</main>
+<footer class="foot"><div class="row"><span>Philipp Wicke, Berlin</span><span><a href="imprint.html">Impressum</a> &middot; &copy; 2026</span></div></footer>
+</body>
+</html>

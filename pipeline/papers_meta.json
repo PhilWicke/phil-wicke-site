@@ -1,0 +1,320 @@
+{
+ "UeHWp8X0CEIC": {
+  "authors": [
+   "P. Wicke",
+   "M. M. Bolognesi"
+  ],
+  "explanation": "Reads COVID-19 tweets from spring 2020 and finds people often described the virus as a war, though the war framing fit some topics better than others.",
+  "venue": "PLOS ONE"
+ },
+ "eQOLeE2rZwMC": {
+  "authors": [
+   "P. Wicke",
+   "M. M. Bolognesi"
+  ],
+  "explanation": "Follows COVID-19 tweets through the first 2020 wave, tracking how topics, mood, and figurative frames shifted as lockdowns wore on, with the war metaphor slowly losing ground."
+ },
+ "IjCSPb-OGe4C": {
+  "authors": [
+   "P. Wicke",
+   "M. Bolognesi"
+  ],
+  "explanation": "Gathered the emoji people link to 300 English nouns and used them as picture-based meaning cues to compare how abstract and concrete words differ.",
+  "venue": "Cognitive Processing"
+ },
+ "Zph67rFs4hoC": {
+  "authors": [
+   "S. Zhang",
+   "P. Wicke",
+   "L. K. Şenel",
+   "L. Figueredo",
+   "A. Naceri",
+   "S. Haddadin",
+   "B. Plank",
+   "H. Schütze"
+  ],
+  "explanation": "Builds a simulated block-stacking test where a robot arm follows multi-step plain-language orders requiring counting, comparing colors, and remembering earlier moves.",
+  "venue": "NeurIPS Robot Learning Workshop"
+ },
+ "aqlVkmm33-oC": {
+  "authors": [
+   "Y. Liu",
+   "H. Ye",
+   "L. Weissweiler",
+   "P. Wicke",
+   "R. Pei",
+   "R. Zangenfeind",
+   "H. Schütze"
+  ],
+  "explanation": "Compares how 1,335 languages carve the world into words and shows concrete things line up across languages better than abstract ones, roughly grouping languages into families."
+ },
+ "9yKSN-GCB0IC": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Builds a NAO robot that interviews someone about their life, then turns the answers into new stories it tells back using gestures."
+ },
+ "LkGwnXOMwfcC": {
+  "authors": [
+   "R. Ramanayake",
+   "P. Wicke",
+   "V. Nallur"
+  ],
+  "explanation": "Argues that helpful AI should sometimes break its designers' rules for the common good, and tests the idea by asking people to solve a COVID vaccine dilemma.",
+  "venue": "AI & Society"
+ },
+ "Wp0gIr-vW9MC": {
+  "authors": [
+   "P. Wicke",
+   "M. M. Bolognesi"
+  ],
+  "explanation": "Compares the words Trump and Harris used in their 2024 debate and finds she framed issues as recovery while he stressed crisis and decline.",
+  "venue": "PLOS ONE"
+ },
+ "Y0pCki6q_DkC": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Uses pairs of robots to act out computer-written stories, with pantomime gestures and stage positioning standing in for characters' emotions and social ties."
+ },
+ "u5HHmVD_uO8C": {
+  "authors": [
+   "P. Wicke"
+  ],
+  "explanation": "Builds a system that turns words, especially action verbs, into strings of emoji using picture-puzzle tricks, metaphor, and idioms.",
+  "venue": "BSc thesis, Osnabrück University"
+ },
+ "YOwf2qJgpHMC": {
+  "authors": [
+   "P. Wicke",
+   "L. Wachowiak"
+  ],
+  "explanation": "Reruns three psychology experiments on AI language and image models to check whether they share people's instincts about basic spatial ideas like up, down, and inside."
+ },
+ "ufrVoPGSRksC": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Proposes a way for robots to act out machine-written stories with gestures, poses, and movement, sometimes performing actions metaphorically rather than literally to seem more creative."
+ },
+ "8k81kl-MbHgC": {
+  "authors": [
+   "P. Wicke"
+  ],
+  "explanation": "Tests whether language models read metaphors better when the actions involve the body, and finds bigger models handle physical metaphors more accurately."
+ },
+ "qjMakFHDy7sC": {
+  "authors": [
+   "T. Veale",
+   "P. Wicke",
+   "T. Mildner"
+  ],
+  "explanation": "Pairs an Alexa voice storyteller with a NAO robot that acts out the tale, turning the friction between the chatty one and the clumsy one into comedy."
+ },
+ "d1gkVwhDpl0C": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Builds a robot that acts out stories by matching each of about 800 plot verbs to a hand gesture, and finds the gestures made audiences laugh more.",
+  "venue": "AISB 2018"
+ },
+ "WF5omc3nYNoC": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Shows a setup where robots tell an AI-generated story and change the plot on the fly from the audience's gestures and facial reactions instead of spoken words.",
+  "venue": "ACM/IEEE HRI 2021 Companion"
+ },
+ "dhFuZR0502QC": {
+  "authors": [
+   "P. Wicke",
+   "M. M. Bolognesi"
+  ],
+  "explanation": "Follows COVID-19 tweets through the first 2020 wave, tracking how topics, mood, and figurative frames shifted as lockdowns wore on, with the war metaphor slowly losing ground."
+ },
+ "9ZlFYXVOiuMC": {
+  "authors": [
+   "A. D. Hakimi",
+   "A. Modarressi",
+   "P. Wicke",
+   "H. Schütze"
+  ],
+  "explanation": "Tracks how an AI language model's inner parts shift from general to specialized jobs while learning facts during training, with facts about places mastered before facts about names."
+ },
+ "ULOm3_A8WrAC": {
+  "authors": [
+   "P. Wicke"
+  ],
+  "explanation": "Checks whether language models such as GPT-3 and Llama-2 can read hand gestures described in words the way people from different cultures do."
+ },
+ "u-x6o8ySG0sC": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Builds a Nao robot that tells stories aloud while picking hand gestures from nine recurring spatial patterns, linking what happens in the plot to body movement."
+ },
+ "YsMSGLbcyi4C": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Programs two small humanoid robots and an Alexa to act out a story with gestures and stage movement, so they perform it rather than just narrate."
+ },
+ "Tyk-4Ss8FVUC": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Turns a spoken story into physical motion, with a performer walking across a space so their shifting positions and gestures mirror how characters relate and the plot moves.",
+  "venue": "AISB 2021 (CC2021)"
+ },
+ "3fE2CSJIrl8C": {
+  "authors": [
+   "P. Wicke",
+   "L. K. Şenel",
+   "S. Zhang",
+   "L. Figueredo",
+   "A. Naceri",
+   "S. Haddadin",
+   "H. Schütze"
+  ],
+  "explanation": "Proposes letting elderly-care robots adjust their actions on the fly from spoken commands, and outlines a crowd-sourced set of household instructions to train them."
+ },
+ "Se3iqnhoufwC": {
+  "authors": [
+   "P. Wicke"
+  ],
+  "explanation": "Argues that storytelling robots should add hand gestures and body movement to spoken tales, so audiences can follow the action and grasp its meaning more easily.",
+  "venue": "TREPHAC Workshop at ICCC 2022"
+ },
+ "zYLM7Y9cAGgC": {
+  "authors": [
+   "P. Wicke",
+   "J. M. Cunha"
+  ],
+  "explanation": "Builds a system that turns sentences from tweets, stories, and poems into emoji using word-meaning lookups instead of machine learning, then compares it with emoji-prediction apps.",
+  "venue": "ICCC 2020"
+ },
+ "L8Ckcad2t8MC": {
+  "authors": [
+   "L. Veloso",
+   "L. Hirlimann",
+   "P. Wicke",
+   "H. Schütze"
+  ],
+  "explanation": "Builds the first labeled collection of queer slang from subtitles, social media, and podcasts so language tools stop mistaking it for hate speech."
+ },
+ "M3ejUd6NZC8C": {
+  "authors": [
+   "P. Wicke",
+   "L. Hirlimann",
+   "J. M. Cunha"
+  ],
+  "explanation": "Tests whether prompting large language models with analogies makes their guesses about which words feel upward or downward match human choices more closely.",
+  "venue": "IJCAI Workshop on Analogical Abstraction"
+ },
+ "roLk4NBRz8UC": {
+  "authors": [
+   "P. Wicke"
+  ],
+  "explanation": "Builds a system that lets robots act out computer-generated stories, using hand gestures and where they stand to convey characters' feelings and relationships.",
+  "venue": "PhD thesis, University College Dublin"
+ },
+ "qUcmZB5y_30C": {
+  "authors": [
+   "L. Mihić Zidar",
+   "P. Wicke",
+   "P. Bhatia",
+   "R. Lutz",
+   "M. Klug",
+   "T. O. Zander"
+  ],
+  "explanation": "Tests whether brainwave readings can reveal a person's mental effort and silent agreement while they chat with an AI, and finds effort easier to detect than agreement.",
+  "venue": "IEEE Int. Winter Conf. on BCI",
+  "link": "https://brain.korea.ac.kr/bci2026/acceptedpaper.php"
+ },
+ "7PzlFSSx8tAC": {
+  "authors": [
+   "I. Bueno",
+   "A. Bavaresco",
+   "J. M. Cunha",
+   "P. Wicke"
+  ],
+  "explanation": "Asks people and AI models to link words with spatial directions through analogies, and finds the models reason about space quite differently from humans.",
+  "venue": "Analogy-Angle II Workshop at ACL 2025"
+ },
+ "IWHjjKOFINEC": {
+  "authors": [
+   "P. Wicke"
+  ],
+  "explanation": "Tests whether two Llama language models can work out what 96 described hand gestures mean from text alone, and finds they mostly failed."
+ },
+ "qxL8FJ1GzNcC": {
+  "authors": [
+   "T. Kuribayashi",
+   "G. Rambelli",
+   "E. Takmaz",
+   "P. Wicke",
+   "Y. Oseki"
+  ],
+  "explanation": "Collects the papers from a 2024 workshop where scientists compared how computers and human minds process language, from reading speed to grammar judgments.",
+  "venue": "CMCL Workshop 2024"
+ },
+ "mVmsd5A6BfQC": {
+  "authors": [
+   "P. Wicke",
+   "M. M. Bolognesi"
+  ],
+  "explanation": "Reads pandemic tweets from early 2020 and finds people cast COVID-19 as a wartime enemy when discussing treatment, but used other imagery for topics like social distancing."
+ },
+ "_kc_bZDykSQC": {
+  "authors": [
+   "L. Hirlimann",
+   "S. Zhang",
+   "H. Schütze",
+   "P. Wicke"
+  ],
+  "explanation": "Tests how home-helper robot models cope inside a simulated house when the lights are dimmed or walls turned to mirrors, which trips up their vision and movement."
+ },
+ "4DMP91E08xMC": {
+  "authors": [
+   "M. Ziosi",
+   "G. Sartor",
+   "J. M. Cunha",
+   "A. Trotta",
+   "P. Wicke"
+  ],
+  "explanation": "Collects eleven peer-reviewed papers from a 2023 Bologna conference on making artificial intelligence more accountable to ordinary people, covering its ethics, governance, law, and privacy."
+ },
+ "2osOgNQ5qMEC": {
+  "authors": [
+   "P. Wicke",
+   "T. Veale"
+  ],
+  "explanation": "Pairs an Amazon Alexa speaker with a NAO robot so the two perform a story together as a comedy double act, each covering the other's weaknesses.",
+  "venue": "Dagstuhl Seminar 19172",
+  "title": "Storytelling with Alexa and Nao"
+ },
+ "UebtZRa9Y70C": {
+  "authors": [
+   "E. Gius",
+   "L. Berov",
+   "M. Finlayson",
+   "P. Wicke"
+  ],
+  "explanation": "Collects what mixed teams of computer scientists and literary scholars sketched at a 2019 workshop: shared events and plans for studying how machines write and judge stories."
+ },
+ "_FxGoFyzp5QC": {
+  "authors": [
+   "T. Veale",
+   "P. Wicke"
+  ],
+  "explanation": "Gives a robot actor emotional reactions to its lines, letting it interpret a script and choose its own metaphors, blends, and ironic touches rather than merely reciting."
+ }
+}

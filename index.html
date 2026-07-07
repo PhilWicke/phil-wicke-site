@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Philipp Wicke</title>
+<meta name="description" content="Cognitive scientist and AI researcher working on language, embodiment and neuroadaptive AI. Senior AI Lead at Zander Labs, lecturer at BTU Cottbus.">
+<link rel="canonical" href="https://phil-wicke.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://phil-wicke.com/">
+<meta property="og:title" content="Philipp Wicke">
+<meta property="og:description" content="Cognitive scientist and AI researcher. Senior AI Lead at Zander Labs, lecturer at BTU Cottbus.">
+<meta property="og:image" content="https://phil-wicke.com/assets/hero-seq-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#1a1b22; --accent:#3b4ea0; --edge:clamp(20px,3.2vw,46px);
+    --paper:#f7f8fb; --ink-soft:#474b57; --ink-mute:#5f6478; --rule:#d2d8e6; --rule-soft:#e6eaf3; --line:#2a3666; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:62px;}
+  body{font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--ink);background:var(--paper);
+    -webkit-font-smoothing:antialiased;}
+
+  /* ============ FLOATING NAV (carries from the hero across the page) ============ */
+  .floatnav{position:fixed;top:0;left:0;right:0;z-index:30;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:clamp(15px,2vw,22px) var(--edge);
+    border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease;}
+  .floatnav.docked{background:rgba(247,248,251,.82);
+    -webkit-backdrop-filter:blur(12px) saturate(1.04);backdrop-filter:blur(12px) saturate(1.04);
+    border-bottom-color:var(--line);}
+  .floatnav .brand{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap;}
+  .floatnav nav{display:flex;gap:30px;}
+  .floatnav nav a{position:relative;color:var(--ink);text-decoration:none;font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;opacity:.72;transition:opacity .25s ease;}
+  .floatnav nav a:hover,.floatnav nav a:focus-visible{opacity:1;}
+  /* legible over the video; dropped once docked over solid content */
+  .floatnav:not(.docked) .brand,.floatnav:not(.docked) nav a{text-shadow:0 1px 16px rgba(246,245,236,.8),0 0 3px rgba(246,245,236,.6);}
+  /* frosted-glass chips appear when the hero frost settles (staggered via .wake) */
+  .floatnav nav a::before{content:"";position:absolute;inset:-6px -11px;z-index:-1;border-radius:100px;
+    -webkit-backdrop-filter:blur(6px) saturate(1.08);backdrop-filter:blur(6px) saturate(1.08);
+    background:rgba(248,247,240,.36);border:1px solid rgba(255,255,255,.6);
+    box-shadow:0 2px 16px rgba(80,95,150,.12);opacity:0;transform:scale(.84);transition:opacity .6s ease,transform .6s ease;}
+  .floatnav nav a.wake::before{opacity:1;transform:scale(1);}
+  .floatnav nav a.cue.wake{opacity:1;}
+  .floatnav.docked nav a::before{opacity:0;}
+  .floatnav.docked nav a{opacity:1;}
+
+  /* ============ HERO (first screen) ============ */
+  .stage{position:relative;height:100vh;height:100svh;overflow:hidden;}
+  .stage .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,
+    rgba(247,248,251,.22) 0%, rgba(247,248,251,0) 16%, rgba(247,248,251,0) 66%, rgba(247,248,251,.55) 100%);}
+  .frost{position:absolute;left:0;right:0;z-index:1;pointer-events:none;
+    -webkit-backdrop-filter:blur(18px) saturate(1.04);backdrop-filter:blur(18px) saturate(1.04);
+    background:rgba(246,245,236,.20);}
+  .frost-top{top:0;height:17%;
+    -webkit-mask-image:linear-gradient(180deg,#000 52%,transparent 100%);mask-image:linear-gradient(180deg,#000 52%,transparent 100%);}
+  .frost-bottom{bottom:0;height:34%;
+    -webkit-mask-image:linear-gradient(0deg,#000 58%,transparent 100%);mask-image:linear-gradient(0deg,#000 58%,transparent 100%);}
+  .frost-full{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;
+    -webkit-backdrop-filter:blur(10px) saturate(1.03);backdrop-filter:blur(10px) saturate(1.03);
+    background:rgba(246,245,236,.10);transition:opacity 4s ease;}
+  .stage.resting .frost-full{opacity:1;}
+  .stage.breathing .frost-full{animation:glassbreath 14s ease-in-out 1s infinite alternate;}
+  @keyframes glassbreath{from{opacity:1} to{opacity:.93}}
+
+  /* easter egg: a glowing point on the brain, behind the frost (z-index:0, so the settled frost diffuses it); revealed only once resting, drifting very slowly and pulsing faintly. Links to Karl Friston's free-energy-principle clip. */
+  .egg{position:absolute;z-index:0;top:43%;left:63%;width:13px;height:13px;transform:translate(-50%,-50%);border-radius:50%;opacity:0;pointer-events:none;transition:opacity 2.6s ease 4.2s;animation:eggdrift 30s ease-in-out infinite;}
+  .stage.resting .egg{opacity:1;pointer-events:auto;}
+  .egg::before{content:"";position:absolute;top:50%;left:50%;width:11px;height:11px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(72,96,178,.98);box-shadow:0 0 12px 5px rgba(72,96,178,.7),0 0 30px 14px rgba(72,96,178,.38);animation:eggpulse 5.5s ease-in-out infinite;}
+  @keyframes eggdrift{0%{transform:translate(calc(-50% - 13px),calc(-50% - 8px));}25%{transform:translate(calc(-50% + 11px),calc(-50% - 14px));}50%{transform:translate(calc(-50% + 14px),calc(-50% + 11px));}75%{transform:translate(calc(-50% - 9px),calc(-50% + 13px));}100%{transform:translate(calc(-50% - 13px),calc(-50% - 8px));}}
+  @keyframes eggpulse{0%,100%{transform:translate(-50%,-50%) scale(.86);opacity:.7;}50%{transform:translate(-50%,-50%) scale(1.22);opacity:.98;}}
+  @media (prefers-reduced-motion:reduce){ .egg,.egg::before{animation:none;} }
+
+  .frame{position:relative;z-index:2;pointer-events:none;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:var(--edge);padding-bottom:calc(var(--edge) + env(safe-area-inset-bottom,0px));}
+  .statement,.meta,.lede,.enter{text-shadow:0 1px 16px rgba(246,245,236,.8),0 0 3px rgba(246,245,236,.6);}
+  .id{max-width:min(62ch,52vw);}
+  .statement{font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+    font-size:clamp(34px,4.2vw,60px);line-height:1.08;letter-spacing:.005em;}
+  .statement em{font-style:italic;}
+  .meta{margin-top:20px;display:flex;gap:13px;flex-wrap:wrap;font-size:11.5px;
+    letter-spacing:.14em;text-transform:uppercase;opacity:.82;}
+  .meta .sep{opacity:.4;}
+  .lede{margin-top:13px;max-width:44ch;font-family:"Newsreader",Georgia,serif;font-weight:400;font-size:clamp(15px,1.5vw,18px);line-height:1.4;color:var(--ink);}
+  .enter{position:absolute;z-index:3;right:var(--edge);bottom:calc(var(--edge) + env(safe-area-inset-bottom,0px));
+    color:var(--ink);text-decoration:none;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    opacity:.72;display:inline-flex;align-items:center;gap:9px;transition:opacity .25s ease;}
+  .enter:hover,.enter:focus-visible{opacity:1;}
+  .enter .arr{font-size:14px;transition:transform .3s ease;}
+  .enter:hover .arr{transform:translateY(3px);}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+  @media (prefers-reduced-motion:reduce){
+    video.bg{display:none;}
+    .frost-full,.enter,.enter .arr{transition:none;}
+    .stage.breathing .frost-full{animation:none;}
+    .floatnav nav a::before{transition:none;transform:none;}
+  }
+
+  /* ============ CANVAS 2 — content (broadsheet, in our language) ============ */
+  #canvas2{background:linear-gradient(180deg,#f7faf7 0,var(--paper) 180px) no-repeat,var(--paper);color:var(--ink);}
+  .content{max-width:1180px;margin:0 auto;padding:clamp(34px,5vw,60px) clamp(20px,4vw,56px) 0;}
+  .tnum{font-variant-numeric:tabular-nums lining-nums;}
+  .sec{padding-top:clamp(48px,7vw,84px);scroll-margin-top:62px;}
+  #about{scroll-margin-top:62px;} #canvas2{scroll-margin-top:0;}
+  .sechead{display:flex;align-items:baseline;gap:14px;border-top:2px solid var(--line);border-image:linear-gradient(90deg,var(--line) 55%,rgba(42,54,102,.25) 85%,transparent 100%) 1;padding:14px 0 4px;}
+  .sechead .kick{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .sechead h2{margin:0;font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(30px,4.6vw,54px);line-height:1;letter-spacing:.005em;color:var(--line);}
+  .sechead .tag{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);align-self:flex-end;padding-bottom:5px;}
+  /* News / in the press: any photo is mapped to a navy-to-paper duotone (SVG #duo) so disparate press images cohere */
+  .duo-def{position:absolute;width:0;height:0;}
+  .news-sec{margin-top:58px;}
+  .news{display:flex;gap:24px;margin-top:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;}
+  .news::-webkit-scrollbar{display:none;}
+  .ni{flex:0 0 calc(40% - 16px);scroll-snap-align:start;color:inherit;text-decoration:none;}
+  .news-nav{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;}
+  .news-nav button{width:32px;height:32px;border-radius:50%;border:1px solid var(--rule);background:none;color:var(--line);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s ease,color .2s ease;}
+  .news-nav button:hover{border-color:var(--accent);color:var(--accent);}
+  .news-nav button svg{width:16px;height:16px;fill:currentColor;}
+  @media(max-width:920px){ .ni{flex:0 0 calc(58% - 12px);} }
+  @media(max-width:600px){ .ni{flex:0 0 84%;} }
+  .ni-img{display:block;aspect-ratio:3/2;overflow:hidden;background:var(--line);}
+  .ni-img img{display:block;width:100%;height:100%;object-fit:cover;filter:url(#duo);transition:transform .55s cubic-bezier(.2,.7,.2,1);}
+  .ni:hover .ni-img img,.ni:focus-visible .ni-img img{transform:scale(1.045);}
+  .ni-txt{display:block;margin-top:13px;}
+  .ni-meta{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);}
+  .ni-h{display:block;margin-top:7px;font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.25;color:var(--line);transition:color .2s ease;}
+  .ni:hover .ni-h,.ni:focus-visible .ni-h{color:var(--accent);}
+  .fold{display:grid;grid-template-columns:1.5fr 1fr;gap:0;}
+  .fold__lead{padding:26px 44px 40px 0;border-right:1px solid var(--rule);}
+  .fold__aside{padding:26px 0 40px 44px;}
+  .deck{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(22px,2.6vw,32px);line-height:1.22;letter-spacing:.005em;color:var(--ink);margin:0 0 22px;max-width:26ch;}
+  .deck em{font-style:italic;}
+  .bodytext{font-family:"Newsreader",Georgia,serif;font-size:16px;line-height:1.58;color:var(--ink-soft);max-width:60ch;}
+  .bodytext p{margin:0 0 13px;}.bodytext b{color:var(--ink);font-weight:600;}
+  .factsheet dt{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute);padding-top:11px;border-top:1px solid var(--rule-soft);}
+  .factsheet dt:first-child{border-top:0;padding-top:0;}
+  .factsheet dd{margin:3px 0 12px;font-family:"Newsreader",Georgia,serif;font-size:15px;color:var(--ink);line-height:1.45;}
+  .portrait{display:block;width:min(220px,72%);height:auto;margin:2px 0 24px;}
+  /* expandable factsheet rows: a minimal +/x toggle reveals a short paragraph */
+  .dd-x{display:flex;justify-content:space-between;align-items:baseline;gap:12px;width:100%;min-height:24px;background:none;border:0;padding:0;margin:0;font-family:"Newsreader",Georgia,serif;font-size:15px;line-height:1.45;color:var(--ink);text-align:left;cursor:pointer;}
+  .dd-x:hover{color:var(--accent);}
+  .dd-i{flex:none;font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1;color:var(--accent);transition:transform .3s ease;}
+  .dd-x[aria-expanded="true"] .dd-i{transform:rotate(45deg);}
+  .dd-m{max-height:0;overflow:hidden;opacity:0;margin:0;font-family:"Newsreader",Georgia,serif;font-size:13.5px;line-height:1.5;color:var(--ink-soft);transition:max-height .45s ease,opacity .35s ease,margin .45s ease;}
+  .dd-m.on{max-height:280px;opacity:1;margin:7px 0 2px;}
+  .entries{list-style:none;margin:0;padding:0;}
+  .entry{display:grid;grid-template-columns:60px 1fr;gap:18px;padding:15px 0;border-top:1px solid var(--rule-soft);}
+  .entry:first-child{border-top:0;}
+  .entry .yr{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;color:var(--accent);padding-top:4px;}
+  .entry h3{margin:0 0 4px;font-family:"Instrument Serif",serif;font-weight:400;font-size:20px;line-height:1.2;color:var(--ink);}
+  .entry h3 a{color:inherit;text-decoration:none;transition:color .14s ease;}
+  .entry h3 a:hover{color:var(--accent);}
+  .entry .note{margin:0;font-family:"Newsreader",Georgia,serif;font-size:14.5px;line-height:1.45;color:var(--ink-soft);max-width:60ch;}
+  .entry .meta{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px 11px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-mute);}
+  .entry .meta .venue{color:var(--ink-soft);}
+  .entry .meta .pill{border:1px solid var(--rule);padding:2px 7px;}
+  .morelink{margin:16px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);}
+  .morelink a{color:var(--accent);border-bottom:1px solid rgba(59,78,160,.4);}
+  .morelink a:hover{border-bottom-color:var(--accent);}
+  .btn-line{display:inline-flex;align-items:center;gap:9px;margin-top:26px;
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:12px 20px;transition:background .15s ease,color .15s ease;}
+  .btn-line:hover{background:var(--accent);color:#fff;}
+  .btn-line .a{transition:transform .25s ease;}.btn-line:hover .a{transform:translateX(3px);}
+  /* recent-activity feed: top of the timeline, scroll for more (full record on activity.html) */
+  .recent-wrap{position:relative;margin-top:16px;}
+  .recent-wrap::after{content:"";position:absolute;left:0;right:7px;bottom:0;height:52px;background:linear-gradient(transparent,var(--paper));pointer-events:none;}
+  .recent-wrap::before{content:"";position:absolute;left:0;right:7px;top:0;height:40px;background:linear-gradient(var(--paper),transparent);pointer-events:none;z-index:1;opacity:0;transition:opacity .25s ease;}
+  .recent-wrap.scrolled::before{opacity:1;}
+  .recent{max-height:300px;overflow-y:auto;padding-right:9px;padding-bottom:52px;}
+  .recent::-webkit-scrollbar{width:5px;}
+  .recent::-webkit-scrollbar-thumb{background:var(--rule);border-radius:3px;}
+  .recent::-webkit-scrollbar-track{background:transparent;}
+  .recent .e{display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:baseline;padding:11px 2px;border-top:1px solid var(--rule-soft);}
+  .recent .e:first-child{border-top:0;}
+  .recent .e .yr{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.03em;color:var(--accent);padding-top:4px;white-space:nowrap;}
+  .recent .e .d{font-family:"Instrument Serif",serif;font-size:17px;line-height:1.32;color:var(--ink);}
+  .recent .e .d a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(59,78,160,.32);}
+  .recent .e .d a:hover{border-bottom-color:var(--accent);}
+  .recent .e .ty{font-family:"IBM Plex Mono",monospace;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);border:1px solid var(--rule);padding:2px 6px;align-self:start;margin-top:4px;white-space:nowrap;}
+  /* publications feed: the full Google Scholar list, scrollable, with subtle live per-paper citations */
+  .recent.papers{max-height:380px;}
+  .papers .e .yr{color:var(--ink-mute);}   /* mute the per-row year so blue isn't repeated down the column */
+  .papers .e{grid-template-columns:50px 1fr;align-items:start;}
+  .papers .e .yr{padding-top:3px;}
+  .papers .e .d a{color:var(--ink);border-bottom:1px solid transparent;}
+  .papers .e .d a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+  .papers .e .au{display:block;font-family:"Newsreader",Georgia,serif;font-size:13px;line-height:1.45;color:var(--ink-mute);margin-top:4px;}
+  .papers .e .au b{color:var(--ink-soft);font-weight:500;}
+  /* left toggle gutter: a + sits to the left of the title; expanding turns it to x and drops a thin line to the description */
+  .papers .e .d.hasexp{display:flex;gap:0;}
+  .papers .pex-t{flex:none;width:18px;align-self:stretch;position:relative;background:none;border:0;padding:0;margin:0;cursor:pointer;}
+  .papers .pex-t::before{content:"";position:absolute;top:0;bottom:0;left:-4px;right:-3px;}  /* widens the tap target to >=24px without moving the layout */
+  .papers .pex-i{position:absolute;top:3px;left:50%;transform:translateX(-50%);font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1;color:var(--ink-mute);transition:transform .3s ease,color .2s ease;}
+  .papers .pex-t:hover .pex-i{color:var(--accent);}
+  .papers .pex-t[aria-expanded="true"] .pex-i{transform:translateX(-50%) rotate(45deg);color:var(--accent);}
+  .papers .pex-t::after{content:"";position:absolute;left:50%;transform:translateX(-50%);top:22px;bottom:5px;width:1px;background:var(--rule);opacity:0;transition:opacity .35s ease;}
+  .papers .pex-t[aria-expanded="true"]::after{opacity:1;}
+  .papers .pex-body{flex:1;min-width:0;}
+  .papers .pex-au{display:block;font-family:"Newsreader",Georgia,serif;font-size:13px;line-height:1.45;color:var(--ink-mute);margin-top:4px;}
+  .papers .pex-au b{color:var(--ink-soft);font-weight:600;}
+  .papers .pex{max-height:200px;opacity:1;overflow:hidden;margin:6px 0 0;font-family:"Newsreader",Georgia,serif;font-size:13.5px;line-height:1.45;color:var(--ink-soft);transition:max-height .4s ease,opacity .3s ease,margin .4s ease;}
+  .papers .pex.collapsed{max-height:0;opacity:0;margin-top:0;}
+  .papers .cit{text-align:right;white-space:nowrap;padding-top:4px;}
+  .papers .cit b{display:block;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .papers .cit span{display:block;font-family:"IBM Plex Mono",monospace;font-size:8.5px;letter-spacing:.06em;color:var(--ink-mute);margin-top:1px;}
+  @media (max-width:560px){ .recent .e{grid-template-columns:1fr auto;} .recent .e .yr{grid-column:1/-1;padding-top:0;} }
+  /* citation overview — dynamic, from assets/scholar.json (refreshed by a scheduled Scholar fetch) */
+  .scholar{border-top:1px solid var(--rule);margin-top:56px;padding-top:28px;}
+  .sch-bars{display:flex;align-items:flex-end;gap:5px;height:78px;margin-bottom:30px;}
+  .sch-bars .bar{flex:1;background:var(--accent);min-height:2px;border-radius:1.5px 1.5px 0 0;opacity:.8;position:relative;transition:opacity .15s ease;}
+  .sch-bars .bar:hover{opacity:1;}
+  .sch-bars .bar .yr{position:absolute;left:0;right:0;bottom:-17px;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:8.5px;letter-spacing:.02em;color:var(--ink-mute);}
+  .sch-meta{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px 24px;}
+  .sch-nums{display:flex;gap:clamp(22px,4vw,46px);}
+  .snum b{display:block;font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(30px,3.8vw,44px);line-height:.95;color:var(--line);font-variant-numeric:tabular-nums;}
+  .snum span{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);}
+  .sch-link{text-align:right;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;}
+  .sch-link a{color:var(--accent);border-bottom:1px solid rgba(59,78,160,.4);}
+  .sch-link a:hover{border-bottom-color:var(--accent);}
+  .sch-upd{display:block;color:var(--ink-mute);font-size:9px;letter-spacing:.04em;text-transform:none;}
+  .body2{display:grid;grid-template-columns:1.6fr 1fr;gap:0;margin-top:clamp(40px,6vw,72px);}
+  #research{padding-top:0;}  /* align the Research and Service column rules on one baseline */
+  .body2 .main{padding-right:44px;border-right:1px solid var(--rule);}
+  .body2 .side{padding-left:44px;}
+  .sideblock{margin-bottom:36px;}
+  .sideblock h3{margin:0;font-family:"Instrument Serif",serif;font-weight:400;font-size:24px;border-top:2px solid var(--line);padding:11px 0 6px;color:var(--line);}
+  .teach{list-style:none;margin:0;padding:0;}
+  .teach li{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:baseline;padding:13px 0;border-top:1px solid var(--rule-soft);}
+  .teach li:first-child{border-top:0;}
+  .teach .tc{display:block;}
+  .teach .tt{font-family:"Instrument Serif",serif;font-weight:400;font-size:18px;line-height:1.3;color:var(--ink);}
+  .teach .fmt{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-left:9px;white-space:nowrap;}
+  .teach .tnote{display:block;font-family:"Newsreader",Georgia,serif;font-size:13.5px;line-height:1.45;color:var(--ink-soft);margin-top:4px;}
+  .teach .kind{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-align:right;white-space:nowrap;}
+  .teach .kind span{display:block;color:var(--ink-mute);margin-top:3px;}
+  /* service rows: same register as paper entries — serif carries the content, Newsreader annotates */
+  .svc{list-style:none;margin:0;padding:0;}
+  .svc li{padding:9px 0;border-top:1px solid var(--rule-soft);}
+  .svc li:first-child{border-top:0;padding-top:2px;}
+  .svc .st{display:block;font-family:"Instrument Serif",serif;font-size:16.5px;line-height:1.3;color:var(--ink);}
+  .svc .sd{display:block;font-family:"Newsreader",Georgia,serif;font-size:13px;line-height:1.45;color:var(--ink-mute);margin-top:2px;}
+  .clist{list-style:none;margin:0;padding:0;}
+  .clist li{border-top:1px solid var(--rule-soft);}
+  .clist li:first-child{border-top:0;}
+  .clist .ci-row{display:flex;align-items:center;gap:12px;width:100%;padding:8px 0;background:none;border:0;cursor:pointer;color:inherit;text-decoration:none;font:inherit;text-align:left;}
+  .clist .ci-ico{flex:none;width:24px;display:inline-flex;justify-content:center;line-height:0;}
+  .clist .ci{width:19px;height:19px;fill:var(--accent);transition:fill .2s ease;display:block;}
+  .clist .lab{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);transition:color .2s ease;}
+  .clist .ci-row:hover .ci,.clist .ci-row:focus-visible .ci{fill:var(--line);}
+  .clist .ci-row:hover .lab,.clist .ci-row:focus-visible .lab{color:var(--ink);}
+  .cta{margin-top:16px;display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#f3f1ea;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;padding:11px 17px;border:0;cursor:pointer;}
+  .cta:hover{background:#33458d;}
+  /* affiliations & collaboration logo wall */
+  .places{margin-top:clamp(44px,6vw,76px);}
+  .places .grp{border-top:2px solid var(--line);padding-top:16px;margin-bottom:22px;}
+  .places .grp:last-child{margin-bottom:0;}
+  .places .lab{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .places .sub{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.05em;color:var(--ink-mute);margin-left:10px;}
+  .logo-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 30px;margin-top:18px;}
+  #collab-row{justify-content:flex-start;gap:24px clamp(40px,5.5vw,76px);}  /* fewer collaborators: keep them left */
+  .logo-row img{max-height:36px;max-width:clamp(120px,14vw,165px);width:auto;height:auto;opacity:.74;transition:opacity .2s ease;}
+  .logo-row img:hover{opacity:1;}
+  @media (max-width:560px){ .logo-row img{max-height:28px;max-width:108px;} }
+  .logo-row img{cursor:help;}
+  /* tooltip showing the institution name behind each logo (hover) */
+  .logotip{position:fixed;z-index:50;pointer-events:none;transform:translate(-50%,-100%);
+    background:var(--line);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.02em;
+    line-height:1.35;text-align:center;padding:5px 9px;border-radius:5px;max-width:230px;
+    opacity:0;transition:opacity .14s ease;box-shadow:0 5px 18px rgba(42,54,102,.22);}
+  .logotip.on{opacity:1;}
+  .logotip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+    border:5px solid transparent;border-top-color:var(--line);}
+  .foot{margin-top:clamp(34px,4vw,52px);border-top:2px solid var(--line);}
+  .foot .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding:22px 0;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);}
+  .foot .imprint{font-family:"Instrument Serif",serif;font-style:italic;font-size:17px;text-transform:none;letter-spacing:0;color:var(--line);}
+  .foot a{color:var(--ink-mute);border-bottom:1px solid var(--rule);}.foot a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+  @media (max-width:860px){
+    .fold,.body2{grid-template-columns:1fr;}
+    .fold__lead{padding:22px 0 28px;border-right:0;border-bottom:1px solid var(--rule);}
+    .fold__aside{padding:24px 0 8px;}
+    .body2 .main{padding-right:0;border-right:0;border-bottom:1px solid var(--rule);padding-bottom:24px;margin-bottom:24px;}
+    .body2 .side{padding-left:0;}
+  }
+  @media (max-width:680px){
+    .floatnav{padding:4px var(--edge);}
+    .floatnav .brand{font-size:9px;letter-spacing:.07em;}
+    .floatnav nav{gap:6px;}
+    .floatnav nav a{font-size:9px;letter-spacing:.05em;padding:14px 4px;line-height:1;}  /* ~42px tap height */
+    .floatnav nav a::before{inset:8px 1px;}
+    .statement{font-size:clamp(30px,9vw,46px);}
+    .meta{gap:14px;max-width:62vw;} .meta .sep{display:none;}
+    .id{max-width:90vw;}
+  }
+  @media (max-width:560px){ .entry{grid-template-columns:46px 1fr;gap:12px;} .teach li,.clist li{grid-template-columns:1fr;} .teach .kind{text-align:left;} }
+</style>
+</head>
+<body>
+  <header class="floatnav">
+    <a class="brand" href="#top">Philipp Wicke</a>
+    <nav aria-label="Sections">
+      <a class="cue c0" href="#about">About</a>
+      <a class="cue c1" href="#research">Research</a>
+      <a class="cue c2" href="#teaching">Teaching</a>
+      <a class="cue c3" href="#news">News</a>
+      <a class="cue c4" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+  <section class="stage" id="top">
+    <img class="bg still" src="assets/hero-seq-poster.jpg" alt="">
+    <video id="hero" class="bg" autoplay muted playsinline poster="assets/hero-seq-poster.jpg">
+      <source src="assets/hero-sequence.mp4" type="video/mp4"></video>
+    <div class="scrim"></div>
+    <div class="frost frost-top"></div>
+    <div class="frost frost-bottom"></div>
+    <div class="frost-full"></div>
+    <!-- easter egg: a subtly glowing point on the brain, revealed only once the frost settles; the ink-drop-into-brain is Karl Friston's free-energy-principle metaphor -->
+    <a class="egg" href="https://youtu.be/NIu_dJGyIQI?t=326" target="_blank" rel="noopener noreferrer" aria-label="The ink drop: Karl Friston on the free-energy principle"></a>
+    <div class="frame">
+      <div class="id">
+        <h1 class="statement">The <em>language</em> of<br>the mind, the mind<br>of the <em>machine</em>.</h1>
+        <p class="meta">
+          <span>Cognitive Scientist</span><span class="sep">/</span>
+          <span>Lecturer</span><span class="sep">/</span>
+          <span>AI Researcher</span>
+        </p>
+        <p class="lede">I work on how language makes meaning in minds and machines, and on aligning AI with human cognition.</p>
+      </div>
+    </div>
+    <a class="enter cue c4" href="#canvas2" aria-label="Enter">Enter <span class="arr" aria-hidden="true">&darr;</span></a>
+  </section>
+
+  <section id="canvas2">
+    <div class="content">
+      <!-- ABOUT -->
+      <section id="about" class="sec" style="padding-top:0;">
+        <div class="sechead"><h2>About</h2></div>
+        <div class="fold">
+          <div class="fold__lead">
+            <p class="deck">I study <em>how meaning takes shape</em>, in the human mind and in the machines we build to imitate&nbsp;it.</p>
+            <div class="bodytext">
+              <p>I am a cognitive scientist and AI researcher. As <b>Senior AI Lead at Zander Labs</b> in Berlin I lead a project connecting large language models to brain-computer interfaces, and I teach a language-models course at <b>BTU Cottbus</b>. Before this I spent four years as a tenured researcher (Akademischer Rat) at LMU Munich, leading a research line on large language and multimodal models, and I was a founding member of AURYAL, a SPRIND-funded neuroadaptive AI venture.</p>
+              <p>Most of what I do comes back to one question: how much of meaning depends on having a body. My doctorate was on robots that tell stories with gesture and spatial metaphor. From there I began testing whether language models really understand figurative, embodied language or only its surface, and lately I build systems that pair those models with brain and behavioural signals.</p>
+              <p>I prefer building things that work to writing about things that might. My code is open, and I use it in the courses I teach, from introductory programming to generative AI.</p>
+            </div>
+          </div>
+          <aside class="fold__aside" aria-label="At a glance">
+            <img class="portrait" src="assets/portrait.png" width="620" height="593" alt="Ink portrait of Philipp Wicke" loading="lazy">
+            <dl class="factsheet">
+              <dt>Based in</dt><dd>Berlin, Germany</dd>
+              <dt>Now</dt><dd><button class="dd-x" type="button" aria-expanded="false">Senior AI Lead, Zander Labs &middot; Lecturer, BTU Cottbus<span class="dd-i" aria-hidden="true">+</span></button><p class="dd-m">At Zander Labs I lead the language side of a brain-computer interface: large language models that read neural and behavioural signals and answer in words, so communication need not run through a keyboard or a voice. At BTU Cottbus I teach the language-models course, from the machine-learning basics up to how current systems are built.</p></dd>
+              <dt>Before</dt><dd><button class="dd-x" type="button" aria-expanded="false">Akademischer Rat (tenured), LMU Munich &middot; founding member &amp; VP AI, AURYAL<span class="dd-i" aria-hidden="true">+</span></button><p class="dd-m">At LMU Munich I held a permanent research post (Akademischer Rat) at the Center for Information and Language Processing, working on large language and multimodal models and supervising students. AURYAL is a SPRIND-funded venture I helped found; as its VP of AI I built and led the foundation-model work behind its neuroadaptive systems.</p></dd>
+              <dt>Education</dt><dd><button class="dd-x" type="button" aria-expanded="false">PhD in AI, University College Dublin &middot; BSc Cognitive Science, Osnabr&uuml;ck<span class="dd-i" aria-hidden="true">+</span></button><p class="dd-m">My doctorate at University College Dublin asked whether a robot could tell a story with its body, using gesture and spatial metaphor the way people do; it passed without corrections. The cognitive-science degree at Osnabr&uuml;ck came first, and it set the question I have followed since: how much of meaning depends on having a body.</p></dd>
+              <dt>Focus</dt><dd>Multimodal &amp; generative AI &middot; computational linguistics &middot; neuroadaptive systems</dd>
+              <dt>Correspondence</dt><dd>philippwicke.contact&#8202;[at]&#8202;gmail.com</dd>
+            </dl>
+          </aside>
+        </div>
+
+        <div class="sechead" style="margin-top:48px;"><h2>Activity</h2><span class="tag">2015 &ndash; 2026</span></div>
+        <div class="recent-wrap">
+          <div class="recent" id="recent">
+<!-- RECENT-START -->
+<div class="e"><div class="yr tnum">2026 &middot; Jul</div><div class="d"><a href="https://cui.acm.org/2026/">ACM Conversational User-Interfaces CUI Conference</a>, Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; May</div><div class="d"><a href="https://sites.google.com/view/cmclworkshop/cfp">Cognitive Modelling and Computational Linguistics</a> Workshop at LREC 2026. Mallorca, Co-Organiser.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; May</div><div class="d">Senior AI Lead at Neuro-Tech Startup <a href="https://www.zanderlabs.com/">Zander Labs</a>. Role change.</div><div class="ty">Role</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; Apr</div><div class="d"><a href="https://www.dhbw.de/die-dhbw/dhbw-ai-transfer-congress">DHBW AI Transfer Congress</a>, Heilbronn, Germany. Program Committee.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; Apr</div><div class="d">International <a href="https://neuroadaptive.org/conference/2026/">Conference on Neuroadaptive Technology</a> 2026 (NAT'26). Keynote Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; Mar</div><div class="d"><a href="https://interdisciplinary-college.org/">Interdisciplinary College 2026</a>, Bridging Realities of Brains, Language, and Technology. Chair, Lecturer, Organiser.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; Mar</div><div class="d">"Neuroadaptive Architecture Integrating Synthetic Neural Feedback and Control" P. Bhatia, L. Becker, R. Lutz, L. Mihić Zidar, M. Klug, T. O. Zander, P. Wicke. <a href="https://interdisciplinary-college.org/">Interdisciplinary College 2026</a>, Poster.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; Feb</div><div class="d">"Decoding Workload and Agreement From EEG During Spoken Dialogue With Conversational AI" L. Mihić Zidar, P. Wicke, P. Bhatia, R. Lutz, M. Klug, T. O. Zander. <a href="https://brain.korea.ac.kr/bci2026/acceptedpaper.php">International Winter Conference on Brain-Computer Interface</a> (BCI 2026), Korea University. Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2026 &middot; Jan</div><div class="d"><a href="https://qualiastudios.dev/">Qualia</a> Meeting - Embodied '26. Copenhagen. AI in Robotics Meeting. Attendance.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Nov</div><div class="d">Area Chair ACL "Linguistic theories, Cognitive Modeling and Psycholinguistics". Area Chair.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Nov</div><div class="d">sipgate Tech-Day 2025. Düsseldorf, Germany. Keynote Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Oct</div><div class="d">VP AI, Lead AI Scientist at Neuro-Tech Startup <a href="https://auryal.com/">AURYAL</a>. Role change.</div><div class="ty">Role</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Oct</div><div class="d">"<a href="https://graduateschool.charite.de/incredible_research_conference_2025">(In)Credible Research Conference 2025</a>" Charité Graduate Studies Support (Berlin University Alliance). Panelist.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Sep</div><div class="d">"<a href="https://www.cas.lmu.de/de/veranstaltungen/veranstaltung/on-non-verbal-behavior-and-embodiment-in-human-ai-communication.html">On Non-Verbal Behavior and Embodiment in Human-AI Communication</a>" Center for Advanced Studies Workshop at LMU. Organiser.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Aug</div><div class="d"><a href="https://2025.aclweb.org/">ACL'25</a> - "<a href="https://openreview.net/pdf?id=HeOBD9V9NE">Time Course MechInterp: Analyzing the Evolution of Components and Knowledge in Large Language Models</a>" A. D. Hakimi, A. Modarressi, P. Wicke, H. Schuetze. ACL Findings (long). Co-Author.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Aug</div><div class="d"><a href="https://2025.ijcai.org/">IJCAI'25</a> - <a href="https://2025.ijcai.org/call-for-papers-ai-arts-creativity/">AI, Arts and Creativity</a>. Special Track Program Committee Member. Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Jul</div><div class="d">"<a href="https://www.lmu.de/en/newsroom/news-overview/news/ai-i-aint-got-no-body.html">AI: I ain’t got no body!</a>" LMU Newsroom Article. Press release.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Jul</div><div class="d"><a href="https://analogy-angle.github.io/">Workshop on Analogical Abstraction in Cognition, Perception, and Language (Analogy-Angle II)</a> at ACL 2025, Vienna. PC Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Jul</div><div class="d">Center for Advanced Studies (CAS). <a href="https://www.cas.lmu.de/en/events/event/lunch-talk-understanding-of-non-verbal-behavior-by-multimodal-ai-systems.html">Lunch Talk: Understanding of Non-Verbal Behavior by Multimodal AI Systems.</a> Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; May</div><div class="d">"<a href="https://aktuell.uni-bielefeld.de/event/philipp-wicke-muenchen-computational-creativity-and-generative-storytelling/">Computational creativity and generative storytelling</a>" Research Colloquium of SFB 1646 "Language Creativity in Communication". University Bielefeld. Invited Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; May</div><div class="d"><a href="https://cmclorg.github.io/">Workshop on Cognitive Modeling and Computational Linguistics (CMCL)</a> at NAACL 2025. Organiser.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Apr</div><div class="d"><a href="https://neuroadaptive.org/conference/2025/">NAT'25 - Conference on Neuroadaptive Technology</a> 2025. Berlin. Accepted Paper. Speaker.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2025 &middot; Mar</div><div class="d"><a href="https://interdisciplinary-college.org/">Interdisciplinary College 2025 "Augmenting Minds and Bodies"</a> - IK'25. PC Member, Invited Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Dec</div><div class="d">"<a href="https://www.eventbrite.co.uk/e/unleashing-ai-agents-tickets-1075607152949">Unleashing AI Agents – Focusing on New Opportunities for AI Adoption in Industries</a>," co-hosted by appliedAI and SAP. Invited Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Nov</div><div class="d">Review for the German Research Foundation (Deutsche Forschungsgemeinschaft - DFG). Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Oct</div><div class="d">Reviewer of the <a href="https://humanrobotinteraction.org/2025/">International Conference on Human-Robot Interaction</a> HRI'25. Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Oct</div><div class="d">Tenured Position at LMU Munich, <a href="https://cisnlp.github.io/">CIS lab by Hinrich Schuetze</a> - Researcher and Lecturer (Entf. Akademischer Rat) at CIS.</div><div class="ty">Role</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Sep</div><div class="d">"<a href="https://www.youtube.com/watch?v=dMvE5IjtI7g">Exploring Spatial Intuitions and Analogical Reasoning in Large Language Models</a>". Department of Modern Languages, Literatures, and Cultures, University Bologna. Research Colloquium Talk. Invited Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Aug</div><div class="d">"<a href="https://arxiv.org/pdf/2402.00956">Exploring Spatial Schema Intuitions in Large Language and Vision Models</a>" Philipp Wicke and Lennart Wachowiak. ACL 2024 Findings. Bangkok, Bangkok, Thailand. Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Aug</div><div class="d"><a href="https://2024.aclweb.org/">ACL'24</a>, Annual Meeting of the Association for Computational Linguistics. Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Aug</div><div class="d"><a href="https://cmclorg.github.io/">Cognitive Modeling and Computational Linguistics (CMCL)</a> 2024 at ACL 2024. Organizer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Aug</div><div class="d"><a href="https://analogy-angle.github.io/">The First Workshop on Analogical Abstraction in Cognition, Perception, and Language (Analogy-ANGLE)</a> co-located with <a href="https://ijcai24.org/">IJCAI 2024</a>. Accepted Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Jul</div><div class="d"><a href="https://geriatronics.mirmi.tum.de/en/geriatronics-summit-2024/">Geriatronics Summit 2024 Conference</a>. July 09-10, Congress Center Garmisch-Partenkirchen. Poster presentation.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Jul</div><div class="d"><a href="https://www.dhbw.de/die-dhbw/dhbw-ai-transfer-congress">DHBW AI Transfer Congress</a>. Program Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Jun</div><div class="d">Associate Member of the <a href="https://www.lmu.de/en/newsroom/news-overview/news/munich-center-for-linguistics-launched.html">Munich Center for Linguistics</a> (MCL).</div><div class="ty">Award</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Jun</div><div class="d"><a href="https://computationalcreativity.net/iccc24/">International Conference on Computational Creativity, ICCC’24</a>. Program Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Jun</div><div class="d">NAACL 2024. <a href="https://2024.naacl.org/">Annual Conference of the North American Chapter of the Association for Computational Linguistics</a>. Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; May</div><div class="d"><a href="https://pages.ucsd.edu/~bkbergen/">Language and Cognition</a> Lab by Prof. Benjamin Bergen. Virtual lab visit and presentation. Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; May</div><div class="d"><a href="https://www.b-tu.de/fg-neuroadaptive-hci">Neuroadaptive HCI</a>, Virtual lab visit and presentation. Invited Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; May</div><div class="d">LREC-COLING. 2024 <a href="https://cltl.github.io/reference-framing-perspective/">Workshop on Reference, Framing, and Perspective</a>. Program Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; May</div><div class="d"><a href="https://2024.ieee-icra.org/">ICRA 2024</a>. IEEE International Conference on Robotics and Automation. Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Apr</div><div class="d">Guest-Lecture at TU Cottbus-Senftenberg: »<a href="https://www.b-tu.de/researchschool/aktuelles/ansicht/26425-default-8b92afc1ed">Introduction to Large Language Models (LLMs) and Prompt Engineering</a>« Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Apr</div><div class="d"><a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/studium/studiengaenge/kognitionswissenschaft/forschungskolloquium/">Cognitive Science Colloquium</a>. University Tuebingen. "Embodied Cognitive Linguistics". Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Mar</div><div class="d"><a href="https://interdisciplinary-college.org/">Interdisciplinary College 2024</a>, IK 'Robustness, Resilience, Responsibility'. Lecturer, Program Committee Member, Organizer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2024 &middot; Feb</div><div class="d"><a href="https://www.lmu.de/de/studium/beratung-und-orientierung/lmu-erleben/campustage.html">CampusDay at LMU 2024</a>. "Introduction to Programming for Computational Linguistics" Sample Lecture. Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Dec</div><div class="d"><a href="https://www.robot-learning.ml/2020/">RobotLearning@NeurIPS2023</a>. "<a href="https://arxiv.org/pdf/2310.12020.pdf">LoHoRavens: A Long-Horizon Language-Conditioned Benchmark for Robotic Tabletop Manipulation</a>" S. Zhang, P. Wicke, L.K. Senel, L. Figueredo, A. Naceri, S. Haddadin, B. Plank, H.Schuetze. Poster.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Dec</div><div class="d"><a href="https://2023.emnlp.org/">EMNLP'23</a> - Conference on Empirical Methods in Natural Language Processing. Area Chair.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Nov</div><div class="d">"<a href="https://aiforpeople.org/conference/">International Conference on AI for People: Democratizing AI</a>" CAIP'23. 24-26 November 2023, Bologna, Italy. Organizer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Sep</div><div class="d"><a href="https://epia2023.inesctec.pt/">EPIA'23</a>, 22nd Portuguese Conference on Artificial Intelligence. Program Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Jul</div><div class="d">Journal: <a href="https://www.tandfonline.com/toc/plcp21/current">Language, Cognition and Neuroscience.</a> Reviewer.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Jul</div><div class="d">"<a href="https://arxiv.org/abs/2305.03445">LMs stand their Ground: Investigating the Effect of Embodiment in Figurative Language Interpretation by Language Models</a>" P. Wicke, ACL 2023 Findings (long). Toronto, Canada. Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Jul</div><div class="d">"<a href="https://arxiv.org/abs/2305.08475">A Crosslingual Investigation of Conceptualization in 1335 Languages</a>" Y. Liu, H. Ye, L. Weissweiler, P. Wicke, R. Pei, R. Zangenfeind and H. Schütze, ACL 2023 Main (long). Toronto, Canada. Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Jul</div><div class="d">"Towards Language-Based Modulation of Assistive Robots through Multimodal Models" P. Wicke, L. Şenel, S. Zhang, L. Figueredo, A. Naceri, S. Haddadin and H. Schütze, <a href="https://geriatronics.mirmi.tum.de/en/geriatronics-summit-2023/">Geriatronics Summit 2023</a>, Germany. Presenter.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Jun</div><div class="d">"<a href="https://kommuniziertki.imascientist.de/">Kommuniziert KI</a>?"  - I'm a Scientist. Online-Mentoring of Live-Chats with young, German pupils. Science Communication. Scientist / Advisor.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; May</div><div class="d"><a href="https://ldjam.com/events/ludum-dare/53">Ludum Dare 53</a>. Game Jam, <a href="https://ldjam.com/events/ludum-dare/53/w-o-o-t-warp-optimized-order-transport">Generative Art for Video Games</a>. Participant.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Apr</div><div class="d"><a href="https://computationalcreativity.net/iccc23/">International Conference on Computational Creativity</a>, ICCC23. Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Mar</div><div class="d">IK'23 Interdisciplinary College 2023, <a href="https://interdisciplinary-college.org/">Dynamics of Experience – Minds, Bodies, and Things</a>. Organization Team Member, Program Commitee Member and Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2023 &middot; Mar</div><div class="d">Associated Member of the <a href="http://www.mcml.ai/">Munich Center for Machine Learning</a> (MCML).</div><div class="ty">Award</div></div>
+<div class="e"><div class="yr tnum">2022 &middot; Dec</div><div class="d">Lingua (Elsevier). Reviewer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2022 &middot; Nov</div><div class="d">Workshop "<a href="https://www.dagstuhl.de/22475">Language-Based Expert-AI Cooperation</a>" of TU Darmstadt and LMU, Schloss Dagstuhl. Organization.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2022 &middot; Oct</div><div class="d"><a href="https://ldjam.com/">Ludum Dare 51</a>. Game Jam. Visual Design for <a href="https://ldj.am/$305607">Emotimon</a>.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2022 &middot; Jun</div><div class="d">"The Role of Gestures and Movement in Computational, Embodied Storytelling". <a href="https://lauramariahherman.wixsite.com/workshopiccc22">The Role of Embodiment in the Perception of Human &amp; Artificial Creativity</a>. ICCC'22 Workshop. Workshop Publication.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2022 &middot; May</div><div class="d">"<a href="https://link.springer.com/article/10.1007/s00146-022-01478-z">Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI</a>" Ramanayake, R., Wicke, P. &amp; Nallur, V.  AI &amp; Soc.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2022 &middot; May</div><div class="d"><a href="https://journals.plos.org/plosone/">PLOS ONE</a>. Journal. Reviewer.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2022 &middot; Mar</div><div class="d">IK'22 <a href="https://interdisciplinary-college.org/">Interdisciplinary College 2022</a>. "Flexibility", 07.03.-17.03.2022. Technical Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Dec</div><div class="d"><a href="https://journals.plos.org/plosone/">PLOS ONE</a>. Journal. Reviewer.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Dec</div><div class="d"><a href="https://eudl.eu/proceedings/CAIP/2021">Proceedings of the First International Conference on AI for People</a>. CORE. EAI. Editor.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Nov</div><div class="d">CAIP'21. <a href="https://www.aiforpeople.org/conference/">International Conference on AI for People: "Towards Sustainable AI"</a>. Conference. General Chair / Organizer.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Nov</div><div class="d"><a href="https://journals.plos.org/plosone/">PLOS ONE</a>. Journal. Reviewer.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Oct</div><div class="d">Akademischer Rat (~Assistant Professor) at Ludwig Maximilian University of Munich. <a href="https://schuetze.cis.lmu.de/">Schuetze's Lab</a>. PostDoc.</div><div class="ty">Role</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Oct</div><div class="d"><a href="https://academic.oup.com/bioscience">BioScience, Oxford Academic</a> Journal. Reviewer.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Sep</div><div class="d">"<a href="https://researchrepository.ucd.ie/handle/10197/12891">Computational Storytelling as an Embodied Robot Performance with Gesture and Spatial Metaphor</a>". Philipp Wicke. PhD Thesis.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Sep</div><div class="d"><a href="https://computationalcreativity.net/iccc23/">International Conference on Computational Creativity</a>, ICCC'21. Program Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Apr</div><div class="d">"<a href="https://www.frontiersin.org/articles/10.3389/frobt.2021.662182/full">Creative Action at a Distance: A Conceptual Framework for Embodied Performance With Robotic Actors</a>" Philipp Wicke and Tony Veale. Frontiers in Robotics and AI. Creativity and Robotics. 2021. Journal Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Apr</div><div class="d"><a href="https://www.springer.com/journal/146/updates/18583616">AI &amp; Society</a>. Springer. Journal of Knowledge, Culture and Communication. Special issue on AI for People. 2021. Reviewer.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Mar</div><div class="d">"<a href="https://www.frontiersin.org/articles/10.3389/fcomm.2021.651997/full">Covid-19 Discourse on Twitter: How the Topics, Sentiments, Subjectivity, and Figurative Frames Changed Over Time</a>" Philipp Wicke and Marianna Bolognesi. Frontiers in Communication. Journal Publication.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Mar</div><div class="d">"<a href="https://dl.acm.org/doi/10.1145/3434074.3447159">Are You Not Entertained? Computational Storytelling with Non-Verbal Interaction</a>" Philipp Wicke and Tony Veale. HRI '21 Late-Breaking Report. ACM/IEEE <a href="https://humanrobotinteraction.org/2025/">International Conference on Human-Robot Interaction</a>. Publication.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Mar</div><div class="d"><a href="https://interdisciplinary-college.org/">Virtual Interdisciplinary College</a>. "Connected in Cyberspace". Social Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2021 &middot; Jan</div><div class="d"><a href="https://docs.google.com/document/d/1I0-KBshqERN9HkV2voTMDYn4lvj5QrhDZXqLbTYc3ko/edit">The Bremen-Groningen Online Workshops on Multimodality</a>. Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Dec</div><div class="d"><a href="https://studiegids.vu.nl/en/exchange/2020-2021/L_NCMACIW021">The Power of Metaphor</a> Vrije Universiteit Amsterdam (NL). Guest Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Sep</div><div class="d">"<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0240010">Framing COVID-19: How we conceptualize and discuss the pandemic on Twitter</a>" P. Wicke and M. Bolognesi. <a href="https://journals.plos.org/plosone/">PLOS ONE</a>. Journal Publication.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Sep</div><div class="d">"<a href="https://www.springerprofessional.de/the-show-must-go-on-on-the-use-of-embodiment-space-and-gesture-i/18351514">The Show Must Go On: On the Use of Embodiment, Space and Gesture in Computational Storytelling</a>" New Generation Computing (Springer). Journal Publication.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Sep</div><div class="d"><a href="http://goodtechs.eu/2020">EAI Goodtechs 2020</a>, European Alliance for Innovation, International Conference on Smart Objects and Technologies for Social Good, Antwerp (BE). Program Committee Member.</div><div class="ty">Service</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Sep</div><div class="d">ICCC20 - <a href="https://computationalcreativity.net/iccc23/">International Conference on Computational Creativity</a>, Coimbra (PRT). Paper &amp; Short Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Aug</div><div class="d">"<a href="https://www.youtube.com/watch?v=26K_xxaY4WE&amp;t=0s">A hands-on Exercise in Natural Language Processing</a>" <a href="https://sites.google.com/view/ai-for-people-workshop">1st AI for People Workshop</a>. Speaker &amp; Organizer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; May</div><div class="d">"<a href="https://link.springer.com/article/10.1007/s10339-020-00971-x">Emoji-based semantic representations for abstract and concrete concepts</a>" Cognitive Processing, Springer. Paper.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Apr</div><div class="d">"<a href="https://www.researchgate.net/publication/343548636_Walk_the_Line_Digital_Storytelling_as_Embodied_Spatial_Performance">Walk the Line: Digital Storytelling as Embodied Spatial Performance</a>". AISB20 - Symposium on Computational Creativity. Extended Abstract.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Mar</div><div class="d">AI for People's <a href="https://sites.google.com/view/codingclass">Coding Class</a>. Free Online Coding Class for Beginner. Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2020 &middot; Jan</div><div class="d"><a href="https://www.hsozkult.de/event/id/termine-40532">Hacking the Computable</a> HDMK Suttgart (GER), Deutsche Gesellschaft für Ästhetik. Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Dec</div><div class="d"><a href="https://studiegids.vu.nl/en/exchange/2020-2021/L_NCMACIW021">The Power of Metaphor</a> Vrije Universiteit Amsterdam (NL). Guest Lecturer.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Oct</div><div class="d"><a href="http://www.comco2019.com/">Computational Cognition Workshop</a>, Osnabrück (GER). Poster.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Jul</div><div class="d">HumTec Workshop "<a href="https://www.css-lab.rwth-aachen.de/Embodied_AI_Exbodied_Mind_Program_Final.pdfhttps://www.css-lab.rwth-aachen.de/Embodied_AI_Exbodied_Mind_Program_Final.pdf">Embodied A.I. / Exbodied Mind</a>", HumTec RWTH Aachen (GER). Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Jun</div><div class="d">ICCC19 <a href="https://computationalcreativity.net/iccc23/">International Conference on Computational Creativity</a>, Charlotte, North Carolina (USA). Poster.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Jun</div><div class="d">ISSAI Interdisciplinary Summer School on Artificial Intelligence, Vila Nova de Cerveira (PRT). Attendance.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Apr</div><div class="d">Dagstuhl Seminar "<a href="https://www.dagstuhl.de/de/programm/kalender/semhp/?semnr=19172">Computational Creativity Meets Digital Literary Studies</a>" (19172), Schloss Dagstuhl (GER). Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Mar</div><div class="d">Conference on Creative Multilingualism: The Creative Power of Metaphor, Oxford (UK). Attendance.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2019 &middot; Mar</div><div class="d">IK19 Interdisciplinary College, Guenne (GER). "Out Of Your Senses. From Data To Insight". Attendance.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2018 &middot; Mar</div><div class="d">IK18 Interdisciplinary College, Guenne (GER). "Me, Myself and I".  3rd Best Poster Award. Poster presenter.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2018</div><div class="d">TriCoLore18. 4th Image Schema Day, Bozen (IT). "<a href="https://www.researchgate.net/profile/Philipp_Wicke/publication/328580013_Wheels_Within_Wheels_A_Causal_Treatment_of_Image_Schemas_in_An_Embodied_Storytelling_System/links/5c177693a6fdcc494ffa82e1/Wheels-Within-Wheels-A-Causal-Treatment-of-Image-Schemas-in-An-Embodied-Storytelling-System.pdf">Wheels Within Wheels: A Causal Treatment of Image Schemas in An Embodied Storytelling System</a>" P.Wicke and T.Veale. Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2018</div><div class="d">Good AIfternoon Colloquium, Radboud University Nijmegen (NL). Introduction to Computational Creativity. Invited Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2018</div><div class="d">ICCC18 <a href="https://computationalcreativity.net/iccc23/">International Conference on Computational Creativity</a>, Salamanca (ES). "<a href="https://pdfs.semanticscholar.org/f56a/89db47fcd8fda1aca2b133c76b2a3e8a0250.pdf">Interview with the Robot: Question-Guided Collaboration in a Story-telling System</a>" P.Wicke and T.Veale. Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2018</div><div class="d">AISB18 Conference on Artificial Intelligence and Simulated Behavior, Liverpool (UK). Paper presentation "<a href="http://afflatus.ucd.ie/Papers/AISB18-Wicke-Veale.pdf">Storytelling by a Show of Hands: A framework for interactive embodied storytelling in robotic agents</a>" P.Wicke and T. Veale. Speaker.</div><div class="ty">Paper</div></div>
+<div class="e"><div class="yr tnum">2017 &middot; Mar</div><div class="d">IK17 Interdisciplinary College, Guenne (GER). "Creativity and Intelligence in Brains and Machines". Attendance.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2017</div><div class="d">Outreach Talk, UCD School of Computer Science Opening Evening, Dublin (IRL). Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2017</div><div class="d">High-Concepts, Low-Downs. Workshop on Computational Creativity, UCD Dublin (IRL). Speaker.</div><div class="ty">Talk</div></div>
+<div class="e"><div class="yr tnum">2017</div><div class="d">Bachelor of Science, Cognitive Science (GPA 1.1 with distinction) - University Osnabrueck (GER). <a href="https://www.researchgate.net/publication/316168050_Ideograms_as_Semantic_Primes_Emoji_in_Computational_Linguistic_Creativity">Ideograms as Semantic Primes: Emoji in Computational Linguistic Creativity</a>. Graduate.</div><div class="ty">Award</div></div>
+<div class="e"><div class="yr tnum">2016 &middot; Sep</div><div class="d">NTU EEE-NVIDIA Deep Learning Day workshop Nanyang Technological University, Singapore. Participation.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2016 &middot; Apr</div><div class="d">2nd PROSECCO Code Camp on Computational Creativity, Antwerp Belgium (<a href="http://bestofbotworlds.com/">bestofbotworlds.com</a>). Participation.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2016 &middot; Mar</div><div class="d">IK16 Interdisciplinary College, Guenne (GER). "Transitions and Transformations in Cognition, Biology and Interactive Systems". Attendance.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2016</div><div class="d">RISE Scholarship 2016, DAAD. Awardee.</div><div class="ty">Award</div></div>
+<div class="e"><div class="yr tnum">2016</div><div class="d">Internship - Prediction of optimal brain surgery in epileptic patients, <a href="https://www.dauwelslab.com/">Dauwels Lab</a>, Nanyang Technological University, Singapore. Intern.</div><div class="ty">Role</div></div>
+<div class="e"><div class="yr tnum">2016</div><div class="d">ERASMUS+ Scholarship 2016. Awardee.</div><div class="ty">Award</div></div>
+<div class="e"><div class="yr tnum">2016</div><div class="d">Internship - Computational Creativity, <a href="http://afflatus.ucd.ie/">The Creative Language System Group</a>, University College Dublin, Ireland. Intern.</div><div class="ty">Role</div></div>
+<div class="e"><div class="yr tnum">2015</div><div class="d">Oxford's Summerfield lab (Dept. of Experimental Psychology), Brown’s lab (Nuffield Department of Clinical Neurosciences), Vogels' lab (Centre for Neural Circuits and Behaviour). Visit.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2015</div><div class="d">Cognium Macaque Laboratory Bremen. Introduction to neuroscientific work on primates by Prof. Michael Koch from Brain Research Institute, Department of Neuropharmacology. Visit.</div><div class="ty">Activity</div></div>
+<div class="e"><div class="yr tnum">2015</div><div class="d">GAP.9 Ninth International Conference of the German Society for Analytic Philosophy. Assistance.</div><div class="ty">Activity</div></div>
+<!-- RECENT-END -->
+          </div>
+        </div>
+      </section>
+
+      <!-- BODY -->
+      <div class="body2">
+        <div class="main">
+          <section id="research" class="sec">
+            <div class="sechead"><h2>Research</h2></div>
+            <div class="recent-wrap" style="margin-top:16px;">
+              <div class="recent papers" id="papers">
+<!-- PAPERS-START -->
+<div class="e"><div class="yr tnum">2026</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://brain.korea.ac.kr/bci2026/acceptedpaper.php">Decoding Workload and Agreement From EEG During Spoken Dialogue With Conversational AI</a><span class="pex-au">L. Mihić Zidar, <b>P. Wicke</b>, P. Bhatia, R. Lutz, M. Klug, T. O. Zander &middot; IEEE Int. Winter Conf. on BCI</span><p class="pex">Tests whether brainwave readings can reveal a person's mental effort and silent agreement while they chat with an AI, and finds effort easier to detect than agreement.</p></div></div></div>
+<div class="e"><div class="yr tnum">2025</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC">Red and blue language: Word choices in the Trump and Harris 2024 presidential debate</a><span class="pex-au"><b>P. Wicke</b>, M. M. Bolognesi &middot; PLOS ONE</span><p class="pex">Compares the words Trump and Harris used in their 2024 debate and finds she framed issues as recovery while he stressed crisis and decline.</p></div></div></div>
+<div class="e"><div class="yr tnum">2025</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:9ZlFYXVOiuMC">Time course mechinterp: Analyzing the evolution of components and knowledge in large language models</a><span class="pex-au">A. D. Hakimi, A. Modarressi, <b>P. Wicke</b>, H. Schütze &middot; Findings of ACL</span><p class="pex">Tracks how an AI language model's inner parts shift from general to specialized jobs while learning facts during training, with facts about places mastered before facts about names.</p></div></div></div>
+<div class="e"><div class="yr tnum">2025</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:L8Ckcad2t8MC">SLAyiNG: Towards Queer Language Processing</a><span class="pex-au">L. Veloso, L. Hirlimann, <b>P. Wicke</b>, H. Schütze &middot; arXiv</span><p class="pex">Builds the first labeled collection of queer slang from subtitles, social media, and podcasts so language tools stop mistaking it for hate speech.</p></div></div></div>
+<div class="e"><div class="yr tnum">2025</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:7PzlFSSx8tAC">Testing Spatial Intuitions of Humans and Large Language and Multimodal Models in Analogies</a><span class="pex-au">I. Bueno, A. Bavaresco, J. M. Cunha, <b>P. Wicke</b> &middot; Analogy-Angle II Workshop at ACL 2025</span><p class="pex">Asks people and AI models to link words with spatial directions through analogies, and finds the models reason about space quite differently from humans.</p></div></div></div>
+<div class="e"><div class="yr tnum">2025</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:IWHjjKOFINEC">Exploring LLM's Interpretation of Gestures Within Textual Contexts for Neuroadaptive Technologies</a><span class="pex-au"><b>P. Wicke</b> &middot; Neuroadaptive Technology Conference</span><p class="pex">Tests whether two Llama language models can work out what 96 described hand gestures mean from text alone, and finds they mostly failed.</p></div></div></div>
+<div class="e"><div class="yr tnum">2024</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC">Exploring Spatial Schema Intuitions in Large Language and Vision Models</a><span class="pex-au"><b>P. Wicke</b>, L. Wachowiak &middot; Findings of ACL</span><p class="pex">Reruns three psychology experiments on AI language and image models to check whether they share people's instincts about basic spatial ideas like up, down, and inside.</p></div></div></div>
+<div class="e"><div class="yr tnum">2024</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:ULOm3_A8WrAC">Probing Language Models' Gesture Understanding for Enhanced Human-AI Interaction</a><span class="pex-au"><b>P. Wicke</b> &middot; arXiv</span><p class="pex">Checks whether language models such as GPT-3 and Llama-2 can read hand gestures described in words the way people from different cultures do.</p></div></div></div>
+<div class="e"><div class="yr tnum">2024</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:M3ejUd6NZC8C">Using Analogical Reasoning to Prompt LLMs for their Intuitions of Abstract Spatial Schemas</a><span class="pex-au"><b>P. Wicke</b>, L. Hirlimann, J. M. Cunha &middot; IJCAI Workshop on Analogical Abstraction</span><p class="pex">Tests whether prompting large language models with analogies makes their guesses about which words feel upward or downward match human choices more closely.</p></div></div></div>
+<div class="e"><div class="yr tnum">2024</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:qxL8FJ1GzNcC">Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics</a><span class="pex-au">T. Kuribayashi, G. Rambelli, E. Takmaz, <b>P. Wicke</b>, Y. Oseki &middot; CMCL Workshop 2024</span><p class="pex">Collects the papers from a 2024 workshop where scientists compared how computers and human minds process language, from reading speed to grammar judgments.</p></div></div></div>
+<div class="e"><div class="yr tnum">2024</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:_kc_bZDykSQC">Robustness Testing of Multi-Modal Models in Varied Home Environments for Assistive Robots</a><span class="pex-au">L. Hirlimann, S. Zhang, H. Schütze, <b>P. Wicke</b> &middot; Geriatronics Summit</span><p class="pex">Tests how home-helper robot models cope inside a simulated house when the lights are dimmed or walls turned to mirrors, which trips up their vision and movement.</p></div></div></div>
+<div class="e"><div class="yr tnum">2024</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:4DMP91E08xMC">Proceedings of the 2nd Conference on AI for People: Democratizing AI</a><span class="pex-au">M. Ziosi, G. Sartor, J. M. Cunha, A. Trotta, <b>P. Wicke</b> &middot; Conference on AI for People, CAIP</span><p class="pex">Collects eleven peer-reviewed papers from a 2023 Bologna conference on making artificial intelligence more accountable to ordinary people, covering its ethics, governance, law, and privacy.</p></div></div></div>
+<div class="e"><div class="yr tnum">2023</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:Zph67rFs4hoC">LoHoRavens: A Long-Horizon Language-Conditioned Benchmark for Robotic Tabletop Manipulation</a><span class="pex-au">S. Zhang, <b>P. Wicke</b>, L. K. Şenel, L. Figueredo, A. Naceri, S. Haddadin, B. Plank, H. Schütze &middot; NeurIPS Robot Learning Workshop</span><p class="pex">Builds a simulated block-stacking test where a robot arm follows multi-step plain-language orders requiring counting, comparing colors, and remembering earlier moves.</p></div></div></div>
+<div class="e"><div class="yr tnum">2023</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:aqlVkmm33-oC">A crosslingual investigation of conceptualization in 1335 languages</a><span class="pex-au">Y. Liu, H. Ye, L. Weissweiler, <b>P. Wicke</b>, R. Pei, R. Zangenfeind, H. Schütze &middot; arXiv</span><p class="pex">Compares how 1,335 languages carve the world into words and shows concrete things line up across languages better than abstract ones, roughly grouping languages into families.</p></div></div></div>
+<div class="e"><div class="yr tnum">2023</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC">Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI</a><span class="pex-au">R. Ramanayake, <b>P. Wicke</b>, V. Nallur &middot; AI &amp; Society</span><p class="pex">Argues that helpful AI should sometimes break its designers' rules for the common good, and tests the idea by asking people to solve a COVID vaccine dilemma.</p></div></div></div>
+<div class="e"><div class="yr tnum">2023</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:8k81kl-MbHgC">LMs stand their ground: Investigating the effect of embodiment in figurative language interpretation by language models</a><span class="pex-au"><b>P. Wicke</b> &middot; Findings of ACL</span><p class="pex">Tests whether language models read metaphors better when the actions involve the body, and finds bigger models handle physical metaphors more accurately.</p></div></div></div>
+<div class="e"><div class="yr tnum">2023</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:3fE2CSJIrl8C">Towards language-based modulation of assistive robots through multimodal models</a><span class="pex-au"><b>P. Wicke</b>, L. K. Şenel, S. Zhang, L. Figueredo, A. Naceri, S. Haddadin, H. Schütze &middot; Geriatronics Summit</span><p class="pex">Proposes letting elderly-care robots adjust their actions on the fly from spoken commands, and outlines a crowd-sourced set of household instructions to train them.</p></div></div></div>
+<div class="e"><div class="yr tnum">2022</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:Se3iqnhoufwC">The Role of Gestures and Movement in Computational, Embodied Storytelling.</a><span class="pex-au"><b>P. Wicke</b> &middot; TREPHAC Workshop at ICCC 2022</span><p class="pex">Argues that storytelling robots should add hand gestures and body movement to spoken tales, so audiences can follow the action and grasp its meaning more easily.</p></div></div></div>
+<div class="e"><div class="yr tnum">2021</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:eQOLeE2rZwMC">Covid-19 discourse on twitter: How the topics, sentiments, subjectivity, and figurative frames changed over time</a><span class="pex-au"><b>P. Wicke</b>, M. M. Bolognesi &middot; Frontiers in Communication</span><p class="pex">Follows COVID-19 tweets through the first 2020 wave, tracking how topics, mood, and figurative frames shifted as lockdowns wore on, with the war metaphor slowly losing ground.</p></div></div></div>
+<div class="e"><div class="yr tnum">2021</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:ufrVoPGSRksC">Creative action at a distance: A conceptual framework for embodied performance with robotic actors</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; Frontiers in Robotics and AI</span><p class="pex">Proposes a way for robots to act out machine-written stories with gestures, poses, and movement, sometimes performing actions metaphorically rather than literally to seem more creative.</p></div></div></div>
+<div class="e"><div class="yr tnum">2021</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:WF5omc3nYNoC">Are you not entertained? computational storytelling with non-verbal interaction</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; ACM/IEEE HRI 2021 Companion</span><p class="pex">Shows a setup where robots tell an AI-generated story and change the plot on the fly from the audience's gestures and facial reactions instead of spoken words.</p></div></div></div>
+<div class="e"><div class="yr tnum">2021</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:Tyk-4Ss8FVUC">Walk the line: Digital storytelling as embodied spatial performance</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; AISB 2021 (CC2021)</span><p class="pex">Turns a spoken story into physical motion, with a performer walking across a space so their shifting positions and gestures mirror how characters relate and the plot moves.</p></div></div></div>
+<div class="e"><div class="yr tnum">2021</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:_FxGoFyzp5QC">Metaphor, Blending and Irony in Action: Creative Performance as Interpretation and Emotionally-Grounded Choice.</a><span class="pex-au">T. Veale, <b>P. Wicke</b> &middot; ICCC</span><p class="pex">Gives a robot actor emotional reactions to its lines, letting it interpret a script and choose its own metaphors, blends, and ironic touches rather than merely reciting.</p></div></div></div>
+<div class="e"><div class="yr tnum">2021</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:roLk4NBRz8UC">Computational storytelling as an embodied robot performance with gesture and spatial metaphor</a><span class="pex-au"><b>P. Wicke</b> &middot; PhD thesis, University College Dublin</span><p class="pex">Builds a system that lets robots act out computer-generated stories, using hand gestures and where they stand to convey characters' feelings and relationships.</p></div></div></div>
+<div class="e"><div class="yr tnum">2020</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:UeHWp8X0CEIC">Framing COVID-19: How we conceptualize and discuss the pandemic on Twitter</a><span class="pex-au"><b>P. Wicke</b>, M. M. Bolognesi &middot; PLOS ONE</span><p class="pex">Reads COVID-19 tweets from spring 2020 and finds people often described the virus as a war, though the war framing fit some topics better than others.</p></div></div></div>
+<div class="e"><div class="yr tnum">2020</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:IjCSPb-OGe4C">Emoji-based semantic representations for abstract and concrete concepts</a><span class="pex-au"><b>P. Wicke</b>, M. Bolognesi &middot; Cognitive Processing</span><p class="pex">Gathered the emoji people link to 300 English nouns and used them as picture-based meaning cues to compare how abstract and concrete words differ.</p></div></div></div>
+<div class="e"><div class="yr tnum">2020</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:Y0pCki6q_DkC">The show must go on: On the use of embodiment, space and gesture in computational storytelling</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; New Generation Computing</span><p class="pex">Uses pairs of robots to act out computer-written stories, with pantomime gestures and stage positioning standing in for characters' emotions and social ties.</p></div></div></div>
+<div class="e"><div class="yr tnum">2020</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:YsMSGLbcyi4C">Show, Don't (Just) Tell: Embodiment and Spatial Metaphor in Computational Story-Telling.</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; ICCC</span><p class="pex">Programs two small humanoid robots and an Alexa to act out a story with gestures and stage movement, so they perform it rather than just narrate.</p></div></div></div>
+<div class="e"><div class="yr tnum">2020</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:zYLM7Y9cAGgC">An Approach for Text-to-Emoji Translation</a><span class="pex-au"><b>P. Wicke</b>, J. M. Cunha &middot; ICCC 2020</span><p class="pex">Builds a system that turns sentences from tweets, stories, and poems into emoji using word-meaning lookups instead of machine learning, then compares it with emoji-prediction apps.</p></div></div></div>
+<div class="e"><div class="yr tnum">2019</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:qjMakFHDy7sC">Duets Ex Machina: On The Performative Aspects of" Double Acts" in Computational Creativity.</a><span class="pex-au">T. Veale, <b>P. Wicke</b>, T. Mildner &middot; ICCC</span><p class="pex">Pairs an Alexa voice storyteller with a NAO robot that acts out the tale, turning the friction between the chatty one and the clumsy one into comedy.</p></div></div></div>
+<div class="e"><div class="yr tnum">2019</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:2osOgNQ5qMEC">Storytelling with Alexa and Nao</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; Dagstuhl Seminar 19172</span><p class="pex">Pairs an Amazon Alexa speaker with a NAO robot so the two perform a story together as a comedy double act, each covering the other's weaknesses.</p></div></div></div>
+<div class="e"><div class="yr tnum">2018</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:9yKSN-GCB0IC">Interview with the Robot: Question-Guided Collaboration in a Storytelling System.</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; ICCC</span><p class="pex">Builds a NAO robot that interviews someone about their life, then turns the answers into new stories it tells back using gestures.</p></div></div></div>
+<div class="e"><div class="yr tnum">2018</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:d1gkVwhDpl0C">Storytelling by a Show of Hands: A framework for interactive embodied storytelling in robotic agents</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; AISB 2018</span><p class="pex">Builds a robot that acts out stories by matching each of about 800 plot verbs to a hand gesture, and finds the gestures made audiences laugh more.</p></div></div></div>
+<div class="e"><div class="yr tnum">2018</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:u-x6o8ySG0sC">Wheels Within Wheels: A Causal Treatment of Image Schemas in An Embodied Storytelling System.</a><span class="pex-au"><b>P. Wicke</b>, T. Veale &middot; TriCoLore (C3GI/ISD/SCORE)</span><p class="pex">Builds a Nao robot that tells stories aloud while picking hand gestures from nine recurring spatial patterns, linking what happens in the plot to body movement.</p></div></div></div>
+<div class="e"><div class="yr tnum">2017</div><div class="d hasexp"><button class="pex-t" type="button" aria-expanded="true" aria-label="Toggle description"><span class="pex-i" aria-hidden="true">+</span></button><div class="pex-body"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=qEXBDy4AAAAJ&amp;pagesize=100&amp;citation_for_view=qEXBDy4AAAAJ:u5HHmVD_uO8C">Ideograms as semantic primes: Emoji in computational linguistic creativity</a><span class="pex-au"><b>P. Wicke</b> &middot; BSc thesis, Osnabrück University</span><p class="pex">Builds a system that turns words, especially action verbs, into strings of emoji using picture-puzzle tricks, metaphor, and idioms.</p></div></div></div>
+<!-- PAPERS-END -->
+              </div>
+            </div>
+            <div class="scholar" id="scholar">
+              <div class="sch-bars" id="sch-bars" role="img" aria-label="Citations per year, from Google Scholar"></div>
+              <div class="sch-meta">
+                <div class="sch-nums">
+                  <div class="snum"><b data-k="citations">907</b><span>Citations</span></div>
+                  <div class="snum"><b data-k="hindex">12</b><span>h-index</span></div>
+                  <div class="snum"><b data-k="i10index">15</b><span>i10-index</span></div>
+                </div>
+                <div class="sch-link">
+                  <span class="sch-upd" data-k="updated"></span>
+                </div>
+              </div>
+            </div>
+            <a class="btn-line" href="research.html">Full research record <span class="a" aria-hidden="true">&rarr;</span></a>
+          </section>
+
+          <section id="teaching" class="sec">
+            <div class="sechead"><h2>Teaching</h2></div>
+            <ul class="teach">
+              <li>
+                <div class="tco">
+                  <span class="tc"><span class="tt">Language Models: ML Basics to Modern AI</span><span class="fmt">Lecture</span></span>
+                </div>
+                <div class="kind">BTU Cottbus<span>2026 &ndash;</span></div>
+              </li>
+              <li>
+                <div class="tco">
+                  <span class="tc"><span class="tt">Applications of Computational Linguistics</span><span class="fmt">Lecture</span></span>
+                  <span class="tc"><span class="tt">Cognitive Linguistics</span><span class="fmt">Seminar</span></span>
+                </div>
+                <div class="kind">LMU Munich<span>2022 &ndash; 26</span></div>
+              </li>
+              <li>
+                <div class="tco">
+                  <span class="tc"><span class="tt">Introduction to Programming</span><span class="fmt">Lecture</span></span>
+                  <span class="tc"><span class="tt">Computational Creativity</span><span class="fmt">Seminar</span></span>
+                </div>
+                <div class="kind">LMU Munich<span>2021 &ndash; 26</span></div>
+              </li>
+              <li>
+                <div class="tco">
+                  <span class="tc"><span class="tt">Thesis supervision</span></span>
+                </div>
+                <div class="kind">MSc / BSc<span>By arrangement</span></div>
+              </li>
+            </ul>
+            <a class="btn-line" href="teaching.html">Full teaching record <span class="a" aria-hidden="true">&rarr;</span></a>
+          </section>
+        </div>
+
+        <div class="side">
+          <section class="sideblock" aria-label="Service">
+            <h3>Service</h3>
+            <ul class="svc" style="margin-top:11px;">
+              <li><span class="st">CMCL Workshop</span><span class="sd">Organiser &middot; ACL, 2024&ndash;26</span></li>
+              <li><span class="st">AI for People</span><span class="sd">Conference organiser</span></li>
+              <li><span class="st">EMNLP 2023</span><span class="sd">Area Chair</span></li>
+              <li><span class="st">ICCC 2020</span><span class="sd">Proceedings Chair</span></li>
+              <li><span class="st">Reviewing</span><span class="sd">ACL, EMNLP, NAACL, IJCAI, ICCC, HRI, ICRA &middot; PLOS ONE, AI &amp; Society</span></li>
+            </ul>
+            <a class="btn-line" href="service.html">Full service record <span class="a" aria-hidden="true">&rarr;</span></a>
+          </section>
+
+          <section id="contact" class="sideblock">
+            <h3>Contact</h3>
+            <ul class="clist" style="margin-top:13px;">
+              <li><button class="ci-row ci-mail" type="button" aria-label="Email Philipp Wicke"><span class="ci-ico"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span><span class="lab">Email</span></button></li>
+              <li><a class="ci-row" href="https://scholar.google.com/citations?user=qEXBDy4AAAAJ" aria-label="Google Scholar profile"><span class="ci-ico"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></span><span class="lab">Scholar</span></a></li>
+              <li><a class="ci-row" href="https://orcid.org/0000-0001-9891-5353" aria-label="ORCID profile"><span class="ci-ico"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.516.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.588-1.444 3.588-3.722 0-2.016-1.091-3.722-3.722-3.722h-2.163z"/></svg></span><span class="lab">ORCID</span></a></li>
+              <li><a class="ci-row" href="https://github.com/PhilWicke" aria-label="GitHub profile"><span class="ci-ico"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span><span class="lab">GitHub</span></a></li>
+              <li><a class="ci-row" href="https://www.linkedin.com/in/philipp-wicke-b442a1195" aria-label="LinkedIn profile"><span class="ci-ico"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span class="lab">LinkedIn</span></a></li>
+              <li><a class="ci-row" href="assets/cv-philipp-wicke.pdf" aria-label="Download CV (PDF)"><span class="ci-ico"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></span><span class="lab">CV</span></a></li>
+            </ul>
+            <button class="cta" id="mailcta" type="button">Write to me <span aria-hidden="true">&rarr;</span></button>
+          </section>
+        </div>
+      </div>
+
+      <section id="news" class="news-sec" aria-label="News and press">
+        <div class="sechead"><h2>News</h2></div>
+        <svg class="duo-def" aria-hidden="true" focusable="false"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues="0.165 0.906"/><feFuncG type="table" tableValues="0.212 0.922"/><feFuncB type="table" tableValues="0.40 0.961"/></feComponentTransfer></filter></svg>
+        <div class="news" id="newsTrack">
+          <a class="ni" href="https://neuroadaptive.org/conference/2026/" target="_blank" rel="noopener noreferrer">
+            <span class="ni-img"><img src="assets/news/nat.jpg" alt="Keynote at the Neuroadaptive Technology Conference 2026 in Berlin" loading="lazy" width="480" height="360"></span>
+            <span class="ni-txt"><span class="ni-meta">Keynote &middot; NAT&rsquo;26, Berlin &middot; Apr 2026</span><span class="ni-h">From probing concepts in language models to reading them in the brain</span></span>
+          </a>
+          <a class="ni" href="https://www.sipgate.de/blog/was-llms-vom-menschlichen-denken-unterscheidet" target="_blank" rel="noopener noreferrer">
+            <span class="ni-img"><img src="assets/news/sipgate.jpg" alt="Philipp Wicke giving a keynote on how LLMs think, at sipgate" loading="lazy" width="820" height="547"></span>
+            <span class="ni-txt"><span class="ni-meta">Keynote &middot; sipgate &middot; Nov 2025</span><span class="ni-h">How do LLMs think?</span></span>
+          </a>
+          <a class="ni" href="https://www.lmu.de/en/newsroom/news-overview/news/ai-i-aint-got-no-body.html" target="_blank" rel="noopener noreferrer">
+            <span class="ni-img"><img src="assets/news/lmu.jpg" alt="Philipp Wicke photographed in an LMU lecture hall" loading="lazy" width="600" height="400"></span>
+            <span class="ni-txt"><span class="ni-meta">LMU Munich Newsroom &middot; Jul 2025</span><span class="ni-h">AI: I ain&rsquo;t got no body!</span></span>
+          </a>
+        </div>
+        <div class="news-nav"><button class="news-prev" type="button" aria-label="Previous news"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg></button><button class="news-next" type="button" aria-label="Next news"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 7.4 10 6l6 6-6 6-1.4-1.4L13.2 12z"/></svg></button></div>
+      </section>
+
+      <section class="places" aria-label="Affiliations and collaboration">
+        <div class="grp">
+          <span class="lab">Affiliations</span><span class="sub">where I have studied and worked</span>
+          <div class="logo-row">
+            <img src="assets/logos/uos.png" alt="University of Osnabr&uuml;ck" loading="lazy">
+            <img src="assets/logos/ntu.png" alt="Nanyang Technological University" loading="lazy">
+            <img src="assets/logos/ucd.png" alt="University College Dublin" loading="lazy">
+            <img src="assets/logos/lmu.png" alt="LMU Munich" loading="lazy">
+            <img src="assets/logos/btu.png" alt="BTU Cottbus" loading="lazy">
+            <img src="assets/logos/zander.png" alt="Zander Labs" loading="lazy">
+            <img src="assets/logos/auryal.png" alt="AURYAL" loading="lazy">
+          </div>
+        </div>
+        <div class="grp">
+          <span class="lab">In collaboration with</span><span class="sub">selected partners and groups</span>
+          <div class="logo-row" id="collab-row">
+            <img src="assets/logos/deepmind.png" alt="Google DeepMind" loading="lazy">
+            <img src="assets/logos/bologna.png" alt="University of Bologna" loading="lazy">
+            <img src="assets/logos/mirmi.png" alt="MIRMI, Munich Institute of Robotics and Machine Intelligence" loading="lazy">
+            <img src="assets/logos/tuda.png" alt="TU Darmstadt" loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <div class="row">
+          <span class="imprint">Philipp Wicke, Berlin</span>
+          <span><a href="imprint.html">Impressum</a> &middot; &copy; 2026</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+  </main>
+
+  <script>
+  (function(){
+    var stage=document.querySelector('.stage'),
+        hero=document.getElementById('hero'),
+        woke=false,
+        decel=false;
+    if(!stage) return;
+    function frost(){ stage.classList.add('resting'); }
+    function wake(instant){
+      if(woke) return; woke=true;
+      ['.c0','.c1','.c2','.c3','.c4'].forEach(function(sel,i){
+        var el=document.querySelector(sel); if(!el) return;
+        if(instant){ el.classList.add('wake'); }
+        else { setTimeout(function(){ el.classList.add('wake'); }, i*650); }
+      });
+    }
+    function reveal(){ frost(); wake(true); }
+    function rampDown(){
+      (function step(){
+        if(hero.paused || hero.ended) return;
+        var rem = hero.duration - hero.currentTime;
+        if(rem <= 0.05){ hero.pause(); stage.classList.add('breathing'); return; }
+        hero.playbackRate = Math.max(0.07, Math.min(1, rem/2.6));
+        requestAnimationFrame(step);
+      })();
+    }
+    if((window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches) || !hero){ reveal(); return; }
+    hero.addEventListener('timeupdate',function(){
+      if(hero.currentTime>=17.5) frost();
+      if(hero.currentTime>=21.5) wake(false);
+      if(!decel && hero.duration && (hero.duration - hero.currentTime) <= 2.6){ decel=true; rampDown(); }
+    });
+    hero.addEventListener('ended',function(){ stage.classList.add('breathing'); });
+    hero.addEventListener('error', reveal);
+    var p = hero.play && hero.play(); if(p && p.catch) p.catch(reveal);
+    setTimeout(function(){ if(hero.currentTime < 0.3) reveal(); }, 4000);
+    setTimeout(function(){ reveal(); }, 24000);
+  })();
+  </script>
+  <script>
+  /* the floating nav docks (gets a glass bar) once you scroll past the hero */
+  (function(){
+    var nav=document.querySelector('.floatnav'); if(!nav) return;
+    function onScroll(){ nav.classList.toggle('docked', window.scrollY > window.innerHeight*0.6); }
+    window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  })();
+  /* assemble the mailto at click time so the address is not in the raw HTML */
+  (function(){
+    var u='philippwicke.contact', d='gmail.com';
+    function mail(e){ if(e) e.preventDefault(); window.location.href='mailto:'+u+'@'+d; }
+    var c=document.getElementById('mailcta'); if(c) c.addEventListener('click',mail);
+    document.querySelectorAll('.ci-mail').forEach(function(b){ b.addEventListener('click',mail); });
+  })();
+  /* News carousel: arrows scroll by one card and wrap around (drag/trackpad also work natively) */
+  (function(){
+    var t=document.getElementById('newsTrack'); if(!t) return;
+    function step(){ var c=t.querySelector('.ni'); return c ? c.getBoundingClientRect().width+24 : t.clientWidth*0.4; }
+    function go(dir){
+      var max=t.scrollWidth-t.clientWidth, at=t.scrollLeft;
+      if(dir>0){ t.scrollTo({left: at>=max-2 ? 0 : Math.min(at+step(),max), behavior:'smooth'}); }
+      else { t.scrollTo({left: at<=2 ? max : Math.max(at-step(),0), behavior:'smooth'}); }
+    }
+    var p=document.querySelector('.news-prev'), n=document.querySelector('.news-next');
+    if(n) n.addEventListener('click',function(){ go(1); });
+    if(p) p.addEventListener('click',function(){ go(-1); });
+  })();
+  /* citation overview: drawn from an inlined snapshot (so it renders offline / on file://),
+     then refreshed from assets/scholar.json when served (kept current by the scheduled Scholar fetch) */
+  (function(){
+    var root=document.getElementById('scholar'); if(!root) return;
+    var SEED={"citations":907,"hindex":12,"i10index":15,"updated":"2026-06-27","perYear":[
+      {"year":2018,"n":3},{"year":2019,"n":4},{"year":2020,"n":37},{"year":2021,"n":166},{"year":2022,"n":187},
+      {"year":2023,"n":137},{"year":2024,"n":140},{"year":2025,"n":143},{"year":2026,"n":69}]};
+    function render(d){
+      ['citations','hindex','i10index'].forEach(function(k){
+        var el=root.querySelector('[data-k="'+k+'"]');
+        if(el && d[k]!=null) el.textContent=Number(d[k]).toLocaleString();
+      });
+      var up=root.querySelector('[data-k="updated"]'); if(up && d.updated) up.textContent='Scholar · updated '+d.updated;
+      var bars=document.getElementById('sch-bars');
+      if(bars && d.perYear && d.perYear.length){
+        var max=Math.max.apply(null,d.perYear.map(function(p){return p.n;}))||1;
+        bars.innerHTML=d.perYear.map(function(p){
+          return '<div class="bar" style="height:'+Math.max(2,Math.round(p.n/max*100))+'%" title="'+p.year+': '+p.n+' citations"><span class="yr">’'+(''+p.year).slice(2)+'</span></div>';
+        }).join('');
+      }
+    }
+    render(SEED);
+    if(window.fetch){ fetch('assets/scholar.json',{cache:'no-store'}).then(function(r){return r.json();}).then(render).catch(function(){}); }
+  })();
+  /* feeds: show the top fade only once scrolled, so text never tears at the box edge */
+  (function(){
+    document.querySelectorAll('.recent').forEach(function(r){
+      r.addEventListener('scroll',function(){
+        r.parentNode.classList.toggle('scrolled', r.scrollTop>4);
+      },{passive:true});
+    });
+  })();
+  /* logo tooltips: show the institution name (from alt) on hover */
+  (function(){
+    var imgs=document.querySelectorAll('.logo-row img'); if(!imgs.length) return;
+    var tip=document.createElement('div'); tip.className='logotip'; tip.setAttribute('aria-hidden','true');
+    document.body.appendChild(tip);
+    function show(img){ tip.textContent=img.getAttribute('alt')||''; var r=img.getBoundingClientRect();
+      tip.style.left=(r.left+r.width/2)+'px'; tip.style.top=(r.top-9)+'px'; tip.classList.add('on'); }
+    function hide(){ tip.classList.remove('on'); }
+    imgs.forEach(function(img){ img.addEventListener('mouseenter',function(){show(img);}); img.addEventListener('mouseleave',hide); });
+    window.addEventListener('scroll',hide,{passive:true});
+  })();
+  /* expandable factsheet rows: toggle the short paragraph (the +/x is rotated by CSS) */
+  (function(){
+    document.querySelectorAll('.dd-x').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var open=btn.getAttribute('aria-expanded')==='true';
+        btn.setAttribute('aria-expanded',String(!open));
+        var m=btn.parentNode.querySelector('.dd-m');
+        if(m) m.classList.toggle('on',!open);
+      });
+    });
+  })();
+  /* paper explanations: collapsible; the first (top, newest) paper opens by rule, the rest start closed */
+  (function(){
+    document.querySelectorAll('#papers .pex-t').forEach(function(btn,i){
+      var pex=btn.parentNode.querySelector('.pex');
+      if(i>0){ btn.setAttribute('aria-expanded','false'); if(pex) pex.classList.add('collapsed'); }
+      btn.addEventListener('click',function(){
+        var open=btn.getAttribute('aria-expanded')!=='true';
+        btn.setAttribute('aria-expanded',String(open));
+        if(pex) pex.classList.toggle('collapsed',!open);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

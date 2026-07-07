@@ -1,0 +1,389 @@
+{
+  "citations": 907,
+  "hindex": 12,
+  "i10index": 15,
+  "perYear": [
+    {
+      "year": 2018,
+      "n": 3
+    },
+    {
+      "year": 2019,
+      "n": 4
+    },
+    {
+      "year": 2020,
+      "n": 37
+    },
+    {
+      "year": 2021,
+      "n": 166
+    },
+    {
+      "year": 2022,
+      "n": 187
+    },
+    {
+      "year": 2023,
+      "n": 137
+    },
+    {
+      "year": 2024,
+      "n": 140
+    },
+    {
+      "year": 2025,
+      "n": 143
+    },
+    {
+      "year": 2026,
+      "n": 69
+    }
+  ],
+  "papers": [
+    {
+      "title": "Framing COVID-19: How we conceptualize and discuss the pandemic on Twitter",
+      "id": "UeHWp8X0CEIC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "PloS one",
+      "year": "2020",
+      "citations": 515,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UeHWp8X0CEIC"
+    },
+    {
+      "title": "Covid-19 discourse on twitter: How the topics, sentiments, subjectivity, and figurative frames changed over time",
+      "id": "eQOLeE2rZwMC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "Frontiers in Communication",
+      "year": "2021",
+      "citations": 113,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:eQOLeE2rZwMC"
+    },
+    {
+      "title": "Emoji-based semantic representations for abstract and concrete concepts",
+      "id": "IjCSPb-OGe4C",
+      "authors": "P Wicke, M Bolognesi",
+      "venue": "Cognitive processing",
+      "year": "2020",
+      "citations": 40,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:IjCSPb-OGe4C"
+    },
+    {
+      "title": "LoHoRavens: A Long-Horizon Language-Conditioned Benchmark for Robotic Tabletop Manipulation",
+      "id": "Zph67rFs4hoC",
+      "authors": "S Zhang, P Wicke, LK \u015eenel, L Figueredo, A Naceri, S Haddadin, B Plank, ...",
+      "venue": "Conference on Neural Information Process, 6th Robot Learning Workshop",
+      "year": "2023",
+      "citations": 23,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Zph67rFs4hoC"
+    },
+    {
+      "title": "A crosslingual investigation of conceptualization in 1335 languages",
+      "id": "aqlVkmm33-oC",
+      "authors": "Y Liu, H Ye, L Weissweiler, P Wicke, R Pei, R Zangenfeind, H Sch\u00fctze",
+      "venue": "arXiv",
+      "year": "2023",
+      "citations": 20,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:aqlVkmm33-oC"
+    },
+    {
+      "title": "Interview with the Robot: Question-Guided Collaboration in a Storytelling System.",
+      "id": "9yKSN-GCB0IC",
+      "authors": "P Wicke, T Veale",
+      "venue": "ICCC",
+      "year": "2018",
+      "citations": 20,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9yKSN-GCB0IC"
+    },
+    {
+      "title": "Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI",
+      "id": "LkGwnXOMwfcC",
+      "authors": "R Ramanayake, P Wicke, V Nallur",
+      "venue": "Ai & Society",
+      "year": "2023",
+      "citations": 19,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC"
+    },
+    {
+      "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
+      "id": "Wp0gIr-vW9MC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "PLoS One",
+      "year": "2025",
+      "citations": 18,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
+    },
+    {
+      "title": "The show must go on: On the use of embodiment, space and gesture in computational storytelling",
+      "id": "Y0pCki6q_DkC",
+      "authors": "P Wicke, T Veale",
+      "venue": "New Generation Computing",
+      "year": "2020",
+      "citations": 16,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Y0pCki6q_DkC"
+    },
+    {
+      "title": "Ideograms as semantic primes: Emoji in computational linguistic creativity",
+      "id": "u5HHmVD_uO8C",
+      "authors": "P Wicke",
+      "venue": "Unpublished dissertation",
+      "year": "2017",
+      "citations": 14,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u5HHmVD_uO8C"
+    },
+    {
+      "title": "Exploring Spatial Schema Intuitions in Large Language and Vision Models",
+      "id": "YOwf2qJgpHMC",
+      "authors": "P Wicke, L Wachowiak",
+      "venue": "Findings of ACL",
+      "year": "2024",
+      "citations": 12,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC"
+    },
+    {
+      "title": "Creative action at a distance: A conceptual framework for embodied performance with robotic actors",
+      "id": "ufrVoPGSRksC",
+      "authors": "P Wicke, T Veale",
+      "venue": "Frontiers in Robotics and AI",
+      "year": "2021",
+      "citations": 12,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ufrVoPGSRksC"
+    },
+    {
+      "title": "LMs stand their ground: Investigating the effect of embodiment in figurative language interpretation by language models",
+      "id": "8k81kl-MbHgC",
+      "authors": "P Wicke",
+      "venue": "Findings of ACL",
+      "year": "2023",
+      "citations": 11,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:8k81kl-MbHgC"
+    },
+    {
+      "title": "Duets Ex Machina: On The Performative Aspects of\" Double Acts\" in Computational Creativity.",
+      "id": "qjMakFHDy7sC",
+      "authors": "T Veale, P Wicke, T Mildner",
+      "venue": "ICCC",
+      "year": "2019",
+      "citations": 11,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:qjMakFHDy7sC"
+    },
+    {
+      "title": "Storytelling by a Show of Hands: A framework for interactive embodied storytelling in robotic agents",
+      "id": "d1gkVwhDpl0C",
+      "authors": "P Wicke, T Veale",
+      "venue": "Proc. of AISB\u201918, the Conf. on Artificial Intelligence and Simulated",
+      "year": "2018",
+      "citations": 10,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:d1gkVwhDpl0C"
+    },
+    {
+      "title": "Are you not entertained? computational storytelling with non-verbal interaction",
+      "id": "WF5omc3nYNoC",
+      "authors": "P Wicke, T Veale",
+      "venue": "Companion of the 2021 ACM/IEEE International Conference on Human-Robot",
+      "year": "2021",
+      "citations": 8,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:WF5omc3nYNoC"
+    },
+    {
+      "title": "Covid-19 discourse on twitter: How the topics, sentiments, subjectivity, and figurative frames changed over time. Frontiers in Communication, 6, 651997",
+      "id": "dhFuZR0502QC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "",
+      "year": "2021",
+      "citations": 7,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:dhFuZR0502QC"
+    },
+    {
+      "title": "Time course mechinterp: Analyzing the evolution of components and knowledge in large language models",
+      "id": "9ZlFYXVOiuMC",
+      "authors": "AD Hakimi, A Modarressi, P Wicke, H Sch\u00fctze",
+      "venue": "Findings of ACL",
+      "year": "2025",
+      "citations": 6,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9ZlFYXVOiuMC"
+    },
+    {
+      "title": "Probing Language Models' Gesture Understanding for Enhanced Human-AI Interaction",
+      "id": "ULOm3_A8WrAC",
+      "authors": "P Wicke",
+      "venue": "arXiv",
+      "year": "2024",
+      "citations": 6,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ULOm3_A8WrAC"
+    },
+    {
+      "title": "Wheels Within Wheels: A Causal Treatment of Image Schemas in An Embodied Storytelling System.",
+      "id": "u-x6o8ySG0sC",
+      "authors": "P Wicke, T Veale",
+      "venue": "TriCoLore (C3GI/ISD/SCORE)",
+      "year": "2018",
+      "citations": 6,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u-x6o8ySG0sC"
+    },
+    {
+      "title": "Show, Don't (Just) Tell: Embodiment and Spatial Metaphor in Computational Story-Telling.",
+      "id": "YsMSGLbcyi4C",
+      "authors": "P Wicke, T Veale",
+      "venue": "ICCC",
+      "year": "2020",
+      "citations": 5,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YsMSGLbcyi4C"
+    },
+    {
+      "title": "Walk the line: Digital storytelling as embodied spatial performance",
+      "id": "Tyk-4Ss8FVUC",
+      "authors": "P Wicke, T Veale",
+      "venue": "at AISB 2021 (CC2021)",
+      "year": "2021",
+      "citations": 4,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Tyk-4Ss8FVUC"
+    },
+    {
+      "title": "Towards language-based modulation of assistive robots through multimodal models",
+      "id": "3fE2CSJIrl8C",
+      "authors": "P Wicke, LK \u015eenel, S Zhang, L Figueredo, A Naceri, S Haddadin, ...",
+      "venue": "Geriatronics Summit",
+      "year": "2023",
+      "citations": 2,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:3fE2CSJIrl8C"
+    },
+    {
+      "title": "The Role of Gestures and Movement in Computational, Embodied Storytelling.",
+      "id": "Se3iqnhoufwC",
+      "authors": "P Wicke",
+      "venue": "TREPHAC@ ICCC",
+      "year": "2022",
+      "citations": 2,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Se3iqnhoufwC"
+    },
+    {
+      "title": "Metaphor, Blending and Irony in Action: Creative Performance as Interpretation and Emotionally-Grounded Choice.",
+      "id": "_FxGoFyzp5QC",
+      "authors": "T Veale, P Wicke",
+      "venue": "ICCC",
+      "year": "2021",
+      "citations": 2,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:_FxGoFyzp5QC"
+    },
+    {
+      "title": "An Approach for Text-to-Emoji Translation",
+      "id": "zYLM7Y9cAGgC",
+      "authors": "P Wicke, JM Cunha",
+      "venue": "ICCC'20 International Conference on Computational Creativity",
+      "year": "2020",
+      "citations": 2,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:zYLM7Y9cAGgC"
+    },
+    {
+      "title": "SLAyiNG: Towards Queer Language Processing",
+      "id": "L8Ckcad2t8MC",
+      "authors": "L Veloso, L Hirlimann, P Wicke, H Sch\u00fctze",
+      "venue": "arXiv",
+      "year": "2025",
+      "citations": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:L8Ckcad2t8MC"
+    },
+    {
+      "title": "Using Analogical Reasoning to Prompt LLMs for their Intuitions of Abstract Spatial Schemas",
+      "id": "M3ejUd6NZC8C",
+      "authors": "P Wicke, L Hirlimann, JM Cunha",
+      "venue": "Proceedings of the IJCAI First Workshop on Analogical Abstraction in",
+      "year": "2024",
+      "citations": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:M3ejUd6NZC8C"
+    },
+    {
+      "title": "Computational storytelling as an embodied robot performance with gesture and spatial metaphor",
+      "id": "roLk4NBRz8UC",
+      "authors": "P Wicke",
+      "venue": "University College Dublin. School of Computer Science",
+      "year": "2021",
+      "citations": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:roLk4NBRz8UC"
+    },
+    {
+      "title": "Decoding Workload and Agreement From EEG During Spoken Dialogue With Conversational AI",
+      "id": "qUcmZB5y_30C",
+      "authors": "L Mihi\u0107 Zidar, P Wicke, P Bhatia, R Lutz, M Klug, TO Zander",
+      "venue": "arXiv",
+      "year": "2026",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:qUcmZB5y_30C"
+    },
+    {
+      "title": "Testing Spatial Intuitions of Humans and Large Language and Multimodal Models in Analogies",
+      "id": "7PzlFSSx8tAC",
+      "authors": "I Bueno, A Bavaresco, JM Cunha, P Wicke",
+      "venue": "The 2nd Workshop on Analogical Abstraction in Cognition, Perception, and",
+      "year": "2025",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:7PzlFSSx8tAC"
+    },
+    {
+      "title": "Exploring LLM's Interpretation of Gestures Within Textual Contexts for Neuroadaptive Technologies",
+      "id": "IWHjjKOFINEC",
+      "authors": "P Wicke",
+      "venue": "Neuroadaptive Technology Conference",
+      "year": "2025",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:IWHjjKOFINEC"
+    },
+    {
+      "title": "Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics",
+      "id": "qxL8FJ1GzNcC",
+      "authors": "T Kuribayashi, G Rambelli, E Takmaz, P Wicke, Y Oseki",
+      "venue": "Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics",
+      "year": "2024",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:qxL8FJ1GzNcC"
+    },
+    {
+      "title": "Framing COVID-19: How we conceptualize and discuss the pandemic on Twitter (vol 15, e0240010, 2020)",
+      "id": "mVmsd5A6BfQC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "PLOS ONE",
+      "year": "2024",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:mVmsd5A6BfQC"
+    },
+    {
+      "title": "Robustness Testing of Multi-Modal Models in Varied Home Environments for Assistive Robots",
+      "id": "_kc_bZDykSQC",
+      "authors": "L Hirlimann, S Zhang, H Sch\u00fctze, P Wicke",
+      "venue": "Geriatronics Summit",
+      "year": "2024",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:_kc_bZDykSQC"
+    },
+    {
+      "title": "Proceedings of the 2nd Conference on AI for People: Democratizing AI",
+      "id": "4DMP91E08xMC",
+      "authors": "M Ziosi, G Sartor, JM Cunha, A Trotta, P Wicke",
+      "venue": "Conference on AI for People, CAIP",
+      "year": "2024",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:4DMP91E08xMC"
+    },
+    {
+      "title": "3.12 Storytelling with Alexa and Nao",
+      "id": "2osOgNQ5qMEC",
+      "authors": "P Wicke, T Veale",
+      "venue": "Computational Creativity Meets Digital Literary Studies",
+      "year": "2019",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:2osOgNQ5qMEC"
+    },
+    {
+      "title": "4 Working groups 4.1 Working Group Reports",
+      "id": "UebtZRa9Y70C",
+      "authors": "E Gius, L Berov, M Finlayson, P Wicke",
+      "venue": "Computational Creativity Meets Digital Literary Studies",
+      "year": "",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UebtZRa9Y70C"
+    }
+  ],
+  "updated": "2026-06-28",
+  "source": "scholar"
+}

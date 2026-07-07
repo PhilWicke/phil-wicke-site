@@ -1,0 +1,18 @@
+# AI / bulk-ingestion crawlers: do not fetch the legal-notice page or its assets
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+Disallow: /imprint.html
+Disallow: /assets/e5b1.svg
+
+# everyone else: full crawl (imprint.html carries its own noindex meta)
+User-agent: *
+Disallow:
