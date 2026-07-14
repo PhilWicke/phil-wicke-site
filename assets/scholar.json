@@ -1,5 +1,5 @@
 {
-  "citations": 909,
+  "citations": 914,
   "hindex": 12,
   "i10index": 15,
   "perYear": [
@@ -9,7 +9,7 @@
     },
     {
       "year": 2019,
-      "n": 5
+      "n": 4
     },
     {
       "year": 2020,
@@ -25,7 +25,7 @@
     },
     {
       "year": 2023,
-      "n": 139
+      "n": 140
     },
     {
       "year": 2024,
@@ -37,7 +37,7 @@
     },
     {
       "year": 2026,
-      "n": 72
+      "n": 79
     }
   ],
   "papers": [
@@ -47,7 +47,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "PloS one",
       "year": "2020",
-      "citations": 515,
+      "citations": 516,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UeHWp8X0CEIC"
     },
     {
@@ -56,7 +56,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "Frontiers in Communication",
       "year": "2021",
-      "citations": 113,
+      "citations": 112,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:eQOLeE2rZwMC"
     },
     {
@@ -78,6 +78,24 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Zph67rFs4hoC"
     },
     {
+      "title": "Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI",
+      "id": "LkGwnXOMwfcC",
+      "authors": "R Ramanayake, P Wicke, V Nallur",
+      "venue": "Ai & Society",
+      "year": "2023",
+      "citations": 21,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC"
+    },
+    {
+      "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
+      "id": "Wp0gIr-vW9MC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "PLoS One",
+      "year": "2025",
+      "citations": 20,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
+    },
+    {
       "title": "A crosslingual investigation of conceptualization in 1335 languages",
       "id": "aqlVkmm33-oC",
       "authors": "Y Liu, H Ye, L Weissweiler, P Wicke, R Pei, R Zangenfeind, H Sch\u00fctze",
@@ -85,15 +103,6 @@
       "year": "2023",
       "citations": 20,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:aqlVkmm33-oC"
-    },
-    {
-      "title": "Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI",
-      "id": "LkGwnXOMwfcC",
-      "authors": "R Ramanayake, P Wicke, V Nallur",
-      "venue": "Ai & Society",
-      "year": "2023",
-      "citations": 20,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC"
     },
     {
       "title": "Interview with the Robot: Question-Guided Collaboration in a Storytelling System.",
@@ -105,15 +114,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9yKSN-GCB0IC"
     },
     {
-      "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
-      "id": "Wp0gIr-vW9MC",
-      "authors": "P Wicke, MM Bolognesi",
-      "venue": "PLoS One",
-      "year": "2025",
-      "citations": 18,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
-    },
-    {
       "title": "The show must go on: On the use of embodiment, space and gesture in computational storytelling",
       "id": "Y0pCki6q_DkC",
       "authors": "P Wicke, T Veale",
@@ -121,6 +121,15 @@
       "year": "2020",
       "citations": 16,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Y0pCki6q_DkC"
+    },
+    {
+      "title": "Exploring Spatial Schema Intuitions in Large Language and Vision Models",
+      "id": "YOwf2qJgpHMC",
+      "authors": "P Wicke, L Wachowiak",
+      "venue": "Findings of ACL",
+      "year": "2024",
+      "citations": 14,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC"
     },
     {
       "title": "Ideograms as semantic primes: Emoji in computational linguistic creativity",
@@ -139,15 +148,6 @@
       "year": "2021",
       "citations": 13,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ufrVoPGSRksC"
-    },
-    {
-      "title": "Exploring Spatial Schema Intuitions in Large Language and Vision Models",
-      "id": "YOwf2qJgpHMC",
-      "authors": "P Wicke, L Wachowiak",
-      "venue": "Findings of ACL",
-      "year": "2024",
-      "citations": 12,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC"
     },
     {
       "title": "LMs stand their ground: Investigating the effect of embodiment in figurative language interpretation by language models",
@@ -384,6 +384,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UebtZRa9Y70C"
     }
   ],
-  "updated": "2026-07-07",
+  "updated": "2026-07-14",
   "source": "scholar"
 }
