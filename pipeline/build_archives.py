@@ -283,7 +283,7 @@ def build_research():
         except Exception: meta = {}
     EXCLUDE = {"UebtZRa9Y70C"}   # Scholar artifacts that are not real papers (seminar TOC fragment)
     best = {}   # dedup Scholar's duplicate entries by normalised title, keep the higher-cited one
-    for p in sj.get("papers", []):
+    for p in _all_papers(sj):
         if p.get("id") in EXCLUDE:
             continue
         k = re.sub(r'[^a-z0-9]', '', p.get("title", "").lower())[:55]
@@ -332,7 +332,7 @@ def build_research_record():
         except Exception: meta = {}
     EXCLUDE = {"UebtZRa9Y70C"}
     best = {}
-    for p in sj.get("papers", []):
+    for p in _all_papers(sj):
         if p.get("id") in EXCLUDE: continue
         k = re.sub(r'[^a-z0-9]', '', p.get("title", "").lower())[:55]
         if k and (k not in best or p.get("citations", 0) > best[k].get("citations", 0)):
@@ -370,6 +370,17 @@ def build_research_record():
         body="".join(body))
     (OUT/"research.html").write_text(html, encoding="utf-8")
     print(f"research.html: {total} papers in {len(groups)} year-groups ({withmeta} with notes)")
+
+def _all_papers(sj):
+    """Scholar's paper list plus manual entries from papers_extra.json (accepted papers Scholar
+    has not indexed yet). Scholar entries come first, so once Scholar indexes a paper the title
+    dedup keeps its version and the manual entry is superseded automatically."""
+    extra = []
+    xp = pathlib.Path(__file__).resolve().parent / "papers_extra.json"
+    if xp.exists():
+        try: extra = json.loads(xp.read_text(encoding="utf-8"))
+        except Exception: extra = []
+    return sj.get("papers", []) + extra
 
 def _address_svg():
     """The inline address SVG: fresh from the gitignored pipeline/address.svg when present

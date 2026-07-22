@@ -316,5 +316,14 @@
    "P. Wicke"
   ],
   "explanation": "Gives a robot actor emotional reactions to its lines, letting it interpret a script and choose its own metaphors, blends, and ironic touches rather than merely reciting."
+ },
+ "xtra-neuroadaptive-storyteller": {
+  "authors": [
+   "L. Mihić Zidar",
+   "P. Wicke",
+   "M. Klug",
+   "T. O. Zander"
+  ],
+  "explanation": "Asks whether suspense deliberately written into a story shows up in the audience's bodily signals as they listen."
  }
 }

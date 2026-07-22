@@ -10,6 +10,8 @@ Feel free to get in touch at: philipp[at]auryal[dot]com
 
 Research Activities
 
+2026 - July | "Toward a Neuroadaptive Storyteller: Does Designed Narrative Suspense Drive Audience Physiology?" L. Mihić Zidar, P. Wicke, M. Klug, T. O. Zander. International Conference on Affective Computing and Intelligent Interaction (ACII 2026), Late-Breaking Research. Paper.
+
 2026 - July | ACM Conversational User-Interfaces CUI Conference, Paper.
 
 2026 - May | Cognitive Modelling and Computational Linguistics Workshop at LREC 2026. Mallorca, Co-Organiser.
@@ -245,6 +247,7 @@ Research Activities
 
 ## Links
 
+- [International Conference on Affective Computing and Intelligent Interaction](https://acii-conf.net/)
 - [International Winter Conference on Brain-Computer Interface](https://brain.korea.ac.kr/bci2026/acceptedpaper.php)
 - [doctoral thesis](https://researchrepository.ucd.ie/handle/10197/12891)
 - [http://www.google.com/url?q=http%3A%2F%2Fwww.researchgate.net%2Fprofile%2FPhilipp_Wicke&sa=D&sntz=1&usg=AOvVaw3M20fUgjpnQ_fwqbzytTqX](http://www.google.com/url?q=http%3A%2F%2Fwww.researchgate.net%2Fprofile%2FPhilipp_Wicke&sa=D&sntz=1&usg=AOvVaw3M20fUgjpnQ_fwqbzytTqX)
