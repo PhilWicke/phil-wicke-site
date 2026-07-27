@@ -1,5 +1,5 @@
 {
-  "citations": 914,
+  "citations": 923,
   "hindex": 12,
   "i10index": 15,
   "perYear": [
@@ -9,7 +9,7 @@
     },
     {
       "year": 2019,
-      "n": 4
+      "n": 5
     },
     {
       "year": 2020,
@@ -17,11 +17,11 @@
     },
     {
       "year": 2021,
-      "n": 166
+      "n": 165
     },
     {
       "year": 2022,
-      "n": 184
+      "n": 185
     },
     {
       "year": 2023,
@@ -29,15 +29,15 @@
     },
     {
       "year": 2024,
-      "n": 139
+      "n": 138
     },
     {
       "year": 2025,
-      "n": 143
+      "n": 144
     },
     {
       "year": 2026,
-      "n": 79
+      "n": 85
     }
   ],
   "papers": [
@@ -47,7 +47,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "PloS one",
       "year": "2020",
-      "citations": 516,
+      "citations": 519,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UeHWp8X0CEIC"
     },
     {
@@ -56,7 +56,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "Frontiers in Communication",
       "year": "2021",
-      "citations": 112,
+      "citations": 113,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:eQOLeE2rZwMC"
     },
     {
@@ -74,8 +74,17 @@
       "authors": "S Zhang, P Wicke, LK \u015eenel, L Figueredo, A Naceri, S Haddadin, B Plank, ...",
       "venue": "Conference on Neural Information Process, 6th Robot Learning Workshop",
       "year": "2023",
-      "citations": 23,
+      "citations": 25,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Zph67rFs4hoC"
+    },
+    {
+      "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
+      "id": "Wp0gIr-vW9MC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "PLoS One",
+      "year": "2025",
+      "citations": 21,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
     },
     {
       "title": "Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI",
@@ -85,15 +94,6 @@
       "year": "2023",
       "citations": 21,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC"
-    },
-    {
-      "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
-      "id": "Wp0gIr-vW9MC",
-      "authors": "P Wicke, MM Bolognesi",
-      "venue": "PLoS One",
-      "year": "2025",
-      "citations": 20,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
     },
     {
       "title": "A crosslingual investigation of conceptualization in 1335 languages",
@@ -191,7 +191,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "",
       "year": "2021",
-      "citations": 7,
+      "citations": 8,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:dhFuZR0502QC"
     },
     {
@@ -276,6 +276,15 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:zYLM7Y9cAGgC"
     },
     {
+      "title": "Decoding Workload and Agreement From EEG During Spoken Dialogue With Conversational AI",
+      "id": "qUcmZB5y_30C",
+      "authors": "L Mihi\u0107 Zidar, P Wicke, P Bhatia, R Lutz, M Klug, TO Zander",
+      "venue": "arXiv",
+      "year": "2026",
+      "citations": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:qUcmZB5y_30C"
+    },
+    {
       "title": "SLAyiNG: Towards Queer Language Processing",
       "id": "L8Ckcad2t8MC",
       "authors": "L Veloso, L Hirlimann, P Wicke, H Sch\u00fctze",
@@ -303,13 +312,13 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:roLk4NBRz8UC"
     },
     {
-      "title": "Decoding Workload and Agreement From EEG During Spoken Dialogue With Conversational AI",
-      "id": "qUcmZB5y_30C",
-      "authors": "L Mihi\u0107 Zidar, P Wicke, P Bhatia, R Lutz, M Klug, TO Zander",
-      "venue": "arXiv",
+      "title": "From Interlocutor to Cognitive Extension: Brain-Computer Interface as a Step Beyond Dialogue in Conversational AI",
+      "id": "hC7cP41nSMkC",
+      "authors": "L Mihi\u0107 Zidar, P Bhatia, P Wicke",
+      "venue": "Proceedings of the 8th ACM Conference on Conversational User Interfaces",
       "year": "2026",
       "citations": 0,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:qUcmZB5y_30C"
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:hC7cP41nSMkC"
     },
     {
       "title": "Testing Spatial Intuitions of Humans and Large Language and Multimodal Models in Analogies",
@@ -384,6 +393,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UebtZRa9Y70C"
     }
   ],
-  "updated": "2026-07-14",
+  "updated": "2026-07-27",
   "source": "scholar"
 }
