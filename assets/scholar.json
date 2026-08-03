@@ -1,6 +1,6 @@
 {
-  "citations": 923,
-  "hindex": 12,
+  "citations": 944,
+  "hindex": 13,
   "i10index": 15,
   "perYear": [
     {
@@ -9,15 +9,15 @@
     },
     {
       "year": 2019,
-      "n": 5
+      "n": 4
     },
     {
       "year": 2020,
-      "n": 37
+      "n": 39
     },
     {
       "year": 2021,
-      "n": 165
+      "n": 184
     },
     {
       "year": 2022,
@@ -29,15 +29,15 @@
     },
     {
       "year": 2024,
-      "n": 138
+      "n": 133
     },
     {
       "year": 2025,
-      "n": 144
+      "n": 142
     },
     {
       "year": 2026,
-      "n": 85
+      "n": 90
     }
   ],
   "papers": [
@@ -47,7 +47,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "PloS one",
       "year": "2020",
-      "citations": 519,
+      "citations": 518,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UeHWp8X0CEIC"
     },
     {
@@ -56,7 +56,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "Frontiers in Communication",
       "year": "2021",
-      "citations": 113,
+      "citations": 117,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:eQOLeE2rZwMC"
     },
     {
@@ -65,7 +65,7 @@
       "authors": "P Wicke, M Bolognesi",
       "venue": "Cognitive processing",
       "year": "2020",
-      "citations": 40,
+      "citations": 43,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:IjCSPb-OGe4C"
     },
     {
@@ -83,7 +83,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "PLoS One",
       "year": "2025",
-      "citations": 21,
+      "citations": 23,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
     },
     {
@@ -96,6 +96,15 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:LkGwnXOMwfcC"
     },
     {
+      "title": "Interview with the robot: Question-guided collaboration in a storytelling system.",
+      "id": "9yKSN-GCB0IC",
+      "authors": "P Wicke, T Veale",
+      "venue": "ICCC",
+      "year": "2018",
+      "citations": 21,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9yKSN-GCB0IC"
+    },
+    {
       "title": "A crosslingual investigation of conceptualization in 1335 languages",
       "id": "aqlVkmm33-oC",
       "authors": "Y Liu, H Ye, L Weissweiler, P Wicke, R Pei, R Zangenfeind, H Sch\u00fctze",
@@ -105,21 +114,12 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:aqlVkmm33-oC"
     },
     {
-      "title": "Interview with the Robot: Question-Guided Collaboration in a Storytelling System.",
-      "id": "9yKSN-GCB0IC",
-      "authors": "P Wicke, T Veale",
-      "venue": "ICCC",
-      "year": "2018",
-      "citations": 20,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9yKSN-GCB0IC"
-    },
-    {
       "title": "The show must go on: On the use of embodiment, space and gesture in computational storytelling",
       "id": "Y0pCki6q_DkC",
       "authors": "P Wicke, T Veale",
       "venue": "New Generation Computing",
       "year": "2020",
-      "citations": 16,
+      "citations": 17,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Y0pCki6q_DkC"
     },
     {
@@ -128,7 +128,7 @@
       "authors": "P Wicke, L Wachowiak",
       "venue": "Findings of ACL",
       "year": "2024",
-      "citations": 14,
+      "citations": 15,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC"
     },
     {
@@ -137,7 +137,7 @@
       "authors": "P Wicke",
       "venue": "Unpublished dissertation",
       "year": "2017",
-      "citations": 14,
+      "citations": 15,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u5HHmVD_uO8C"
     },
     {
@@ -146,8 +146,17 @@
       "authors": "P Wicke, T Veale",
       "venue": "Frontiers in Robotics and AI",
       "year": "2021",
-      "citations": 13,
+      "citations": 14,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ufrVoPGSRksC"
+    },
+    {
+      "title": "Duets Ex Machina: On The Performative Aspects of\" Double Acts\" in Computational Creativity.",
+      "id": "qjMakFHDy7sC",
+      "authors": "T Veale, P Wicke, T Mildner",
+      "venue": "ICCC",
+      "year": "2019",
+      "citations": 14,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:qjMakFHDy7sC"
     },
     {
       "title": "LMs stand their ground: Investigating the effect of embodiment in figurative language interpretation by language models",
@@ -159,30 +168,21 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:8k81kl-MbHgC"
     },
     {
-      "title": "Duets Ex Machina: On The Performative Aspects of\" Double Acts\" in Computational Creativity.",
-      "id": "qjMakFHDy7sC",
-      "authors": "T Veale, P Wicke, T Mildner",
-      "venue": "ICCC",
-      "year": "2019",
-      "citations": 11,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:qjMakFHDy7sC"
-    },
-    {
       "title": "Storytelling by a Show of Hands: A framework for interactive embodied storytelling in robotic agents",
       "id": "d1gkVwhDpl0C",
       "authors": "P Wicke, T Veale",
       "venue": "Proc. of AISB\u201918, the Conf. on Artificial Intelligence and Simulated",
       "year": "2018",
-      "citations": 10,
+      "citations": 11,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:d1gkVwhDpl0C"
     },
     {
-      "title": "Are you not entertained? computational storytelling with non-verbal interaction",
+      "title": "Are you not entertained? Computational storytelling with non-verbal interaction",
       "id": "WF5omc3nYNoC",
       "authors": "P Wicke, T Veale",
-      "venue": "Companion of the 2021 ACM/IEEE International Conference on Human-Robot",
+      "venue": "Companion of the 2021 ACM/IEEE international conference on human-robot",
       "year": "2021",
-      "citations": 8,
+      "citations": 9,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:WF5omc3nYNoC"
     },
     {
@@ -195,6 +195,15 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:dhFuZR0502QC"
     },
     {
+      "title": "Wheels Within Wheels: A Causal Treatment of Image Schemas in An Embodied Storytelling System.",
+      "id": "u-x6o8ySG0sC",
+      "authors": "P Wicke, T Veale",
+      "venue": "TriCoLore (C3GI/ISD/SCORE)",
+      "year": "2018",
+      "citations": 7,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u-x6o8ySG0sC"
+    },
+    {
       "title": "Time course mechinterp: Analyzing the evolution of components and knowledge in large language models",
       "id": "9ZlFYXVOiuMC",
       "authors": "AD Hakimi, A Modarressi, P Wicke, H Sch\u00fctze",
@@ -204,40 +213,40 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9ZlFYXVOiuMC"
     },
     {
-      "title": "Probing Language Models' Gesture Understanding for Enhanced Human-AI Interaction",
-      "id": "ULOm3_A8WrAC",
-      "authors": "P Wicke",
-      "venue": "arXiv",
-      "year": "2024",
-      "citations": 6,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ULOm3_A8WrAC"
-    },
-    {
-      "title": "Wheels Within Wheels: A Causal Treatment of Image Schemas in An Embodied Storytelling System.",
-      "id": "u-x6o8ySG0sC",
-      "authors": "P Wicke, T Veale",
-      "venue": "TriCoLore (C3GI/ISD/SCORE)",
-      "year": "2018",
-      "citations": 6,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u-x6o8ySG0sC"
-    },
-    {
       "title": "Show, Don't (Just) Tell: Embodiment and Spatial Metaphor in Computational Story-Telling.",
       "id": "YsMSGLbcyi4C",
       "authors": "P Wicke, T Veale",
       "venue": "ICCC",
       "year": "2020",
-      "citations": 5,
+      "citations": 6,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YsMSGLbcyi4C"
+    },
+    {
+      "title": "Probing Language Models' Gesture Understanding for Enhanced Human-AI Interaction",
+      "id": "ULOm3_A8WrAC",
+      "authors": "P Wicke",
+      "venue": "arXiv",
+      "year": "2024",
+      "citations": 5,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:ULOm3_A8WrAC"
     },
     {
       "title": "Walk the line: Digital storytelling as embodied spatial performance",
       "id": "Tyk-4Ss8FVUC",
       "authors": "P Wicke, T Veale",
-      "venue": "at AISB 2021 (CC2021)",
+      "venue": "7th Computational Creativity Symposium at AISB",
+      "year": "2020",
+      "citations": 5,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Tyk-4Ss8FVUC"
+    },
+    {
+      "title": "Metaphor, blending and irony in action: Creative performance as interpretation and emotionally-grounded choice",
+      "id": "_FxGoFyzp5QC",
+      "authors": "T Veale",
+      "venue": "",
       "year": "2021",
       "citations": 4,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Tyk-4Ss8FVUC"
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:_FxGoFyzp5QC"
     },
     {
       "title": "Towards language-based modulation of assistive robots through multimodal models",
@@ -247,24 +256,6 @@
       "year": "2023",
       "citations": 2,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:3fE2CSJIrl8C"
-    },
-    {
-      "title": "The Role of Gestures and Movement in Computational, Embodied Storytelling.",
-      "id": "Se3iqnhoufwC",
-      "authors": "P Wicke",
-      "venue": "TREPHAC@ ICCC",
-      "year": "2022",
-      "citations": 2,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Se3iqnhoufwC"
-    },
-    {
-      "title": "Metaphor, Blending and Irony in Action: Creative Performance as Interpretation and Emotionally-Grounded Choice.",
-      "id": "_FxGoFyzp5QC",
-      "authors": "T Veale, P Wicke",
-      "venue": "ICCC",
-      "year": "2021",
-      "citations": 2,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:_FxGoFyzp5QC"
     },
     {
       "title": "An Approach for Text-to-Emoji Translation",
@@ -301,6 +292,15 @@
       "year": "2024",
       "citations": 1,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:M3ejUd6NZC8C"
+    },
+    {
+      "title": "The Role of Gestures and Movement in Computational, Embodied Storytelling.",
+      "id": "Se3iqnhoufwC",
+      "authors": "P Wicke",
+      "venue": "TREPHAC@ ICCC",
+      "year": "2022",
+      "citations": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Se3iqnhoufwC"
     },
     {
       "title": "Computational storytelling as an embodied robot performance with gesture and spatial metaphor",
@@ -375,6 +375,15 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:4DMP91E08xMC"
     },
     {
+      "title": "Computational Storytelling as an Embodied Robot Performance with Gesture and Spatial",
+      "id": "-f6ydRqryjwC",
+      "authors": "P Wicke",
+      "venue": "Wicke, Philipp.\u201cComputational Storytelling as an Embodied Robot Performance",
+      "year": "2021",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:-f6ydRqryjwC"
+    },
+    {
       "title": "3.12 Storytelling with Alexa and Nao",
       "id": "2osOgNQ5qMEC",
       "authors": "P Wicke, T Veale",
@@ -382,6 +391,15 @@
       "year": "2019",
       "citations": 0,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:2osOgNQ5qMEC"
+    },
+    {
+      "title": "Spring School",
+      "id": "hFOr9nPyWt4C",
+      "authors": "P Wicke",
+      "venue": "",
+      "year": "",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:hFOr9nPyWt4C"
     },
     {
       "title": "4 Working groups 4.1 Working Group Reports",
@@ -393,6 +411,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UebtZRa9Y70C"
     }
   ],
-  "updated": "2026-07-27",
+  "updated": "2026-08-03",
   "source": "scholar"
 }
