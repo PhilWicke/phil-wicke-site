@@ -10,7 +10,7 @@ Feel free to get in touch at: philipp[at]auryal[dot]com
 
 Research Activities
 
-2026 - July | "Toward a Neuroadaptive Storyteller: Does Designed Narrative Suspense Drive Audience Physiology?" L. Mihić Zidar, P. Wicke, M. Klug, T. O. Zander. International Conference on Affective Computing and Intelligent Interaction (ACII 2026), Late-Breaking Research. Paper.
+2026 - September | "Toward a Neuroadaptive Storyteller: Does Designed Narrative Suspense Drive Audience Physiology?" L. Mihić Zidar, P. Wicke, M. Klug, T. O. Zander. International Conference on Affective Computing and Intelligent Interaction (ACII 2026), Late-Breaking Research. Paper.
 
 2026 - July | ACM Conversational User-Interfaces CUI Conference, Paper.
 
