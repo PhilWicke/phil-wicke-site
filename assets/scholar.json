@@ -1,5 +1,5 @@
 {
-  "citations": 944,
+  "citations": 947,
   "hindex": 13,
   "i10index": 15,
   "perYear": [
@@ -13,7 +13,7 @@
     },
     {
       "year": 2020,
-      "n": 39
+      "n": 40
     },
     {
       "year": 2021,
@@ -29,7 +29,7 @@
     },
     {
       "year": 2024,
-      "n": 133
+      "n": 134
     },
     {
       "year": 2025,
@@ -47,7 +47,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "PloS one",
       "year": "2020",
-      "citations": 518,
+      "citations": 521,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UeHWp8X0CEIC"
     },
     {
@@ -321,10 +321,19 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:hC7cP41nSMkC"
     },
     {
+      "title": "Proceedings of the 15th Workshop on Cognitive Modeling and Computational Linguistics",
+      "id": "mB3voiENLucC",
+      "authors": "BD Oh, T Kuribayashi, G Rambelli, E Takmaz, P Wicke, J Li, R Yoshida",
+      "venue": "Proceedings of the 15th Workshop on Cognitive Modeling and Computational",
+      "year": "2026",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:mB3voiENLucC"
+    },
+    {
       "title": "Testing Spatial Intuitions of Humans and Large Language and Multimodal Models in Analogies",
       "id": "7PzlFSSx8tAC",
-      "authors": "I Bueno, A Bavaresco, JM Cunha, P Wicke",
-      "venue": "The 2nd Workshop on Analogical Abstraction in Cognition, Perception, and",
+      "authors": "ISB J\u00fanior, A Bavaresco, JM Cunha, P Wicke",
+      "venue": "Proceedings of the 2nd Workshop on Analogical Abstraction in Cognition",
       "year": "2025",
       "citations": 0,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:7PzlFSSx8tAC"
@@ -411,6 +420,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UebtZRa9Y70C"
     }
   ],
-  "updated": "2026-08-03",
+  "updated": "2026-08-09",
   "source": "scholar"
 }

@@ -335,5 +335,18 @@
   "title": "From Interlocutor to Cognitive Extension: Brain-Computer Interface as a Step Beyond Dialogue in Conversational AI",
   "venue": "ACM CUI 2026",
   "explanation": "Argues that people use conversational AI less as a dialogue partner than as an extension of their own thinking, and that brain-computer interfaces are the natural next step."
+ },
+ "mB3voiENLucC": {
+  "authors": [
+   "B.-D. Oh",
+   "T. Kuribayashi",
+   "G. Rambelli",
+   "E. Takmaz",
+   "P. Wicke",
+   "J. Li",
+   "R. Yoshida"
+  ],
+  "venue": "CMCL Workshop 2026",
+  "explanation": "Collects the 26 papers of the 2026 CMCL workshop, where researchers compare human and machine language processing, from real-time reading to language acquisition."
  }
 }
