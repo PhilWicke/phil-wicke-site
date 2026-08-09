@@ -281,7 +281,7 @@ def build_research():
     if mp.exists():
         try: meta = json.loads(mp.read_text(encoding="utf-8"))
         except Exception: meta = {}
-    EXCLUDE = {"UebtZRa9Y70C"}   # Scholar artifacts that are not real papers (seminar TOC fragment)
+    EXCLUDE = {"UebtZRa9Y70C", "hFOr9nPyWt4C"}   # Scholar artifacts that are not real papers (seminar TOC fragment)
     best = {}   # dedup Scholar's duplicate entries by normalised title, keep the higher-cited one
     for p in _all_papers(sj):
         if p.get("id") in EXCLUDE:
@@ -330,7 +330,7 @@ def build_research_record():
     if mp.exists():
         try: meta = json.loads(mp.read_text(encoding="utf-8"))
         except Exception: meta = {}
-    EXCLUDE = {"UebtZRa9Y70C"}
+    EXCLUDE = {"UebtZRa9Y70C", "hFOr9nPyWt4C"}
     best = {}
     for p in _all_papers(sj):
         if p.get("id") in EXCLUDE: continue

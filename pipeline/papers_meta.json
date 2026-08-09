@@ -325,5 +325,15 @@
    "T. O. Zander"
   ],
   "explanation": "Asks whether suspense deliberately written into a story shows up in the audience's bodily signals as they listen."
+ },
+ "hC7cP41nSMkC": {
+  "authors": [
+   "L. Mihić Zidar",
+   "P. Bhatia",
+   "P. Wicke"
+  ],
+  "title": "From Interlocutor to Cognitive Extension: Brain-Computer Interface as a Step Beyond Dialogue in Conversational AI",
+  "venue": "ACM CUI 2026",
+  "explanation": "Argues that people use conversational AI less as a dialogue partner than as an extension of their own thinking, and that brain-computer interfaces are the natural next step."
  }
 }
