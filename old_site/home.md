@@ -10,6 +10,8 @@ Feel free to get in touch at: philipp[at]auryal[dot]com
 
 Research Activities
 
+2027 - April | Dagstuhl Seminar 27162 "Analogical Abstraction: Modeling and Applications", Schloss Dagstuhl, Wadern, Germany. Invited participant.
+
 2026 - September | "Toward a Neuroadaptive Storyteller: Does Designed Narrative Suspense Drive Audience Physiology?" L. Mihić Zidar, P. Wicke, M. Klug, T. O. Zander. International Conference on Affective Computing and Intelligent Interaction (ACII 2026), Late-Breaking Research. Paper.
 
 2026 - July | ACM Conversational User-Interfaces CUI Conference, Paper.
@@ -247,6 +249,7 @@ Research Activities
 
 ## Links
 
+- [Dagstuhl Seminar 27162](https://www.dagstuhl.de/27162)
 - [International Conference on Affective Computing and Intelligent Interaction](https://acii-conf.net/)
 - [International Winter Conference on Brain-Computer Interface](https://brain.korea.ac.kr/bci2026/acceptedpaper.php)
 - [doctoral thesis](https://researchrepository.ucd.ie/handle/10197/12891)
