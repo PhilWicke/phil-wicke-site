@@ -6,6 +6,8 @@ Editorial Service
 
 Workshop Co-Organiser: BilingLM 2027, Bilingualism and Language Modeling, at COLING 2027.
 
+Workshop Co-Organiser: CMCL 2027, Cognitive Modeling and Computational Linguistics, at COLING 2027.
+
 Reviewer: DHBW AI Transfer Congress, AITC 2026.
 
 Reviewer: International Joint Conference on Artificial Intelligence, IJCAI 2025.
