@@ -51,8 +51,13 @@
   .floatnav.docked nav a{opacity:1;}
 
   /* ============ HERO (first screen) ============ */
-  .stage{position:relative;height:100vh;height:100svh;overflow:hidden;}
+  .stage{position:relative;height:100vh;height:100svh;overflow:hidden;background:#f8f4eb;}  /* the cream of the video's first frame */
   .stage .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  /* the settled-brain still is the END frame: it sits above the video but stays invisible while the clip plays
+     (the video's poster is the first frame). It fades in once the clip has settled on that same frame, or as the
+     fallback (reduced motion, blocked autoplay, video failed or never started) */
+  .stage .still{opacity:0;pointer-events:none;transition:opacity 1.6s ease;}
+  .stage.static .still{opacity:1;}
   .scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,
     rgba(247,248,251,.22) 0%, rgba(247,248,251,0) 16%, rgba(247,248,251,0) 66%, rgba(247,248,251,.55) 100%);}
   .frost{position:absolute;left:0;right:0;z-index:1;pointer-events:none;
@@ -97,6 +102,7 @@
   a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
   @media (prefers-reduced-motion:reduce){
     video.bg{display:none;}
+    .stage .still{opacity:1;transition:none;}
     .frost-full,.enter,.enter .arr{transition:none;}
     .stage.breathing .frost-full{animation:none;}
     .floatnav nav a::before{transition:none;transform:none;}
@@ -317,9 +323,9 @@
 
   <main>
   <section class="stage" id="top">
-    <img class="bg still" src="assets/hero-seq-poster.jpg" alt="">
-    <video id="hero" class="bg" autoplay muted playsinline poster="assets/hero-seq-poster.jpg">
-      <source src="assets/hero-sequence.mp4" type="video/mp4"></video>
+    <video id="hero" class="bg" autoplay muted playsinline poster="assets/hero-seq-start.jpg">
+      <source src="assets/hero-sequence.mp4" type="video/mp4" onerror="this.parentNode.setAttribute('data-failed','')"></video>
+    <img class="bg still" src="assets/hero-seq-poster.jpg" alt="" fetchpriority="low" decoding="async">
     <div class="scrim"></div>
     <div class="frost frost-top"></div>
     <div class="frost frost-bottom"></div>
@@ -697,26 +703,77 @@
       });
     }
     function reveal(){ frost(); wake(true); }
+    /* the end-frame still takes over from the video: after a fallback, or once the clip has settled on its last frame */
+    function settle(){
+      var st=stage.querySelector('.still');
+      /* crossfade only once the still is decoded, so it never pops in half-loaded */
+      (st && st.decode ? st.decode() : Promise.resolve()).catch(function(){}).then(function(){ stage.classList.add('static'); });
+    }
+    /* the clip cannot play: stop it for good and show the still */
+    function fallback(){ hero.removeAttribute('autoplay'); hero.pause(); settle(); reveal(); }
     function rampDown(){
       (function step(){
         if(hero.paused || hero.ended) return;
         var rem = hero.duration - hero.currentTime;
-        if(rem <= 0.05){ hero.pause(); stage.classList.add('breathing'); return; }
+        if(rem <= 0.05){ hero.pause(); stage.classList.add('breathing'); settle(); return; }
         hero.playbackRate = Math.max(0.07, Math.min(1, rem/2.6));
         requestAnimationFrame(step);
       })();
     }
-    if((window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches) || !hero){ reveal(); return; }
+    /* run fn now if the page is visible, else on the next time it is shown */
+    function whenVisible(fn){
+      if(document.visibilityState !== 'hidden'){ fn(); return; }
+      document.addEventListener('visibilitychange', function shown(){
+        if(document.visibilityState === 'hidden') return;
+        document.removeEventListener('visibilitychange', shown); fn();
+      });
+    }
+    /* browsers hold muted autoplay back while the video is off screen (a deep link, a restored scroll),
+       so the clip only gets judged while the page is visible AND the hero is in view */
+    function onScreen(){ var r=hero.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }
+    function whenShown(fn){
+      whenVisible(function(){
+        if(onScreen() || !('IntersectionObserver' in window)){ fn(); return; }
+        var io=new IntersectionObserver(function(es){
+          if(!es[0].isIntersecting) return;
+          io.disconnect(); fn();
+        });
+        io.observe(hero);
+      });
+    }
+    if(!hero){ stage.classList.add('static'); reveal(); return; }
+    if(window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches){
+      hero.removeAttribute('autoplay'); hero.pause(); stage.classList.add('static'); reveal(); return;
+    }
+    var started=false;
+    hero.addEventListener('playing',function(){ started=true; });
     hero.addEventListener('timeupdate',function(){
-      if(hero.currentTime>=17.5) frost();
-      if(hero.currentTime>=21.5) wake(false);
+      if(hero.currentTime>=16.875) frost();
+      if(hero.currentTime>=20.75) wake(false);
       if(!decel && hero.duration && (hero.duration - hero.currentTime) <= 2.6){ decel=true; rampDown(); }
     });
-    hero.addEventListener('ended',function(){ stage.classList.add('breathing'); });
-    hero.addEventListener('error', reveal);
-    var p = hero.play && hero.play(); if(p && p.catch) p.catch(reveal);
-    setTimeout(function(){ if(hero.currentTime < 0.3) reveal(); }, 4000);
-    setTimeout(function(){ reveal(); }, 24000);
+    hero.addEventListener('ended',function(){ stage.classList.add('breathing'); settle(); });
+    hero.addEventListener('error', fallback);
+    /* a failed <source> fires its error on the source, not the video; one that failed before this script ran is flagged by its onerror attribute */
+    var src = hero.querySelector('source'); if(src) src.addEventListener('error', fallback);
+    if(hero.hasAttribute('data-failed')){ fallback(); return; }
+    /* blocked or unsupported: fall back; an AbortError only means a play request was interrupted (the check below still covers a stuck clip) */
+    var p = hero.play && hero.play(); if(p && p.catch) p.catch(function(e){ if(!e || e.name !== 'AbortError') fallback(); });
+    /* if the clip has not started after 4 s of being shown, fall back; a clip that is still downloading gets
+       one more 4 s, and time in a background tab or with the hero scrolled away (where browsers hold it) does not count */
+    function arm(){
+      var waited=0;
+      (function check(){
+        setTimeout(function(){
+          if(started || hero.currentTime > 0) return;
+          if(document.visibilityState === 'hidden' || !onScreen()){ whenShown(check); return; }
+          if(hero.networkState === hero.NETWORK_LOADING && !hero.error && ++waited < 2){ check(); return; }
+          fallback();
+        }, 4000);
+      })();
+      setTimeout(function(){ reveal(); }, 24000);
+    }
+    whenShown(arm);
   })();
   </script>
   <script>
