@@ -1,0 +1,170 @@
+WEBVTT
+
+00:00:06.520 --> 00:00:11.420
+Right, a picture 1st. Think of a storage
+room, numbered bins, and a clerk who looks
+
+00:00:11.420 --> 00:00:11.920
+after them.
+
+00:00:12.600 --> 00:00:16.880
+You ask for somewhere to put something.
+They find an empty bin, write the number
+
+00:00:16.880 --> 00:00:19.460
+in their book, and hand you that number on
+a note.
+
+00:00:20.200 --> 00:00:23.080
+When you're done, you tell them, and they
+cross it out of their book again.
+
+00:00:23.840 --> 00:00:24.940
+Let's go straight into C.
+
+00:00:26.000 --> 00:00:29.200
+The note is a pointer variable. We'll call
+it scores.
+
+00:00:29.970 --> 00:00:34.260
+The number on it is an address, and you
+never make up one. Malloc, memory
+
+00:00:34.260 --> 00:00:35.860
+allocation, gives it to you.
+
+00:00:36.580 --> 00:00:38.920
+The bin is the block, so the space you
+got.
+
+00:00:39.830 --> 00:00:43.110
+And the clerk's book is the allocator's
+bookkeeping.
+
+00:00:43.800 --> 00:00:48.640
+Notice, the book isn't in the picture, and
+there's no name in C for it either.
+
+00:00:48.640 --> 00:00:50.200
+Handing, handing the back--
+
+00:00:50.920 --> 00:00:56.040
+the bin back is what the function free
+does, and it changes the book. It doesn't
+
+00:00:56.040 --> 00:01:01.020
+change your note, however. That still says
+4, one, 2, and nothing in C stops you
+
+00:01:01.020 --> 00:01:03.330
+using it. Most of the bugs that you will
+encounter
+
+00:01:04.080 --> 00:01:06.500
+are the clerk disagreeing about who's got
+4, one, 2 with you.
+
+00:01:06.500 --> 00:01:07.100
+the kernel hands those out already zeroed.
+
+00:01:07.830 --> 00:01:09.160
+That's luck, not a promise.
+
+00:01:10.200 --> 00:01:15.340
+And here are the same 16 bytes straight
+after free. Glibc has written its own
+
+00:01:15.340 --> 00:01:20.219
+bookkeeping into the 1st eight, scrambled,
+and it's derived from this block's own
+
+00:01:20.220 --> 00:01:20.520
+address.
+
+00:01:21.140 --> 00:01:25.900
+The 2nd eight are a key it stamps in so it
+can spot you freeing the same block
+
+00:01:25.900 --> 00:01:26.300
+twice.
+
+00:01:27.640 --> 00:01:32.820
+So reading scores index zero after freeing
+reads 4 bytes of that.
+
+00:01:33.420 --> 00:01:37.420
+On this machine, it's a big negative
+number, different every run because the
+
+00:01:37.420 --> 00:01:39.000
+address is randomized. Elsewhere, it might
+be positive or the same every time.
+
+00:01:39.000 --> 00:01:40.661
+and the sanitizer names it. Stack use
+after return.
+
+00:01:42.601 --> 00:01:45.121
+Bug 2. Let's look at the code as well.
+
+00:01:48.981 --> 00:01:53.111
+I've moved the print down below the free,
+so I'm reading through the pointer after
+
+00:01:53.111 --> 00:01:54.121
+handing back the blog.
+
+00:01:54.981 --> 00:01:56.031
+Again, let's compile
+
+00:01:57.981 --> 00:01:59.201
+and execute.
+
+00:02:02.681 --> 00:02:03.421
+Not 42.
+
+00:02:04.481 --> 00:02:05.281
+Let's run it again.
+
+00:02:09.041 --> 00:02:13.780
+Different score. And you know why. We
+looked at the bytes. That's glibc's
+
+00:02:13.781 --> 00:02:17.621
+scrambled link field, and I'm reading 4
+bytes of it as an int.
+
+00:02:18.421 --> 00:02:20.161
+Let's sanitize it
+
+00:02:21.861 --> 00:02:22.681
+and run that again.
+
+00:02:25.661 --> 00:02:28.000
+And the sanitizer gives you the history.
+Used here, freed here, allocated here.
+
+00:02:28.000 --> 00:02:30.041
+line 7, and nothing ever gave them back.
+
+00:02:31.281 --> 00:02:33.861
+Well, all 3 bugs are kind of the same
+mistake.
+
+00:02:35.601 --> 00:02:40.381
+When the program's correct, the pointer
+sits inside the lifetime of what it points
+
+00:02:40.381 --> 00:02:46.301
+at. Dangling pointer and use after free,
+the pointer outlives the memory. A leak is
+
+00:02:46.301 --> 00:02:47.161
+that flipped over.
+
+00:02:47.761 --> 00:02:49.321
+The memory outlives every pointer.
+
+00:02:50.281 --> 00:02:53.500
+So it's the one question asked 3 ways. Do
+those bars line up?
