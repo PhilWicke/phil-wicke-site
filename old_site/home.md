@@ -16,6 +16,8 @@ Research Activities
 
 2027 - April | Dagstuhl Seminar 27162 "Analogical Abstraction: Modeling and Applications", Schloss Dagstuhl, Wadern, Germany. Invited participant.
 
+2026 - November | AI Director at Neuro-Tech Startup Zander Labs. Role change.
+
 2026 - October | Long Horizon Physical AI Summit 2026, hosted by Encord, Fort Mason Center, San Francisco, USA. Demonstrator.
 
 2026 - September | "Toward a Neuroadaptive Storyteller: Does Designed Narrative Suspense Drive Audience Physiology?" L. Mihić Zidar, P. Wicke, M. Klug, T. O. Zander. International Conference on Affective Computing and Intelligent Interaction (ACII 2026), Late-Breaking Research. Paper.
