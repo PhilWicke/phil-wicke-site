@@ -1,5 +1,5 @@
 {
-  "citations": 971,
+  "citations": 1006,
   "hindex": 13,
   "i10index": 15,
   "perYear": [
@@ -13,31 +13,31 @@
     },
     {
       "year": 2020,
-      "n": 40
+      "n": 41
     },
     {
       "year": 2021,
-      "n": 185
+      "n": 186
     },
     {
       "year": 2022,
-      "n": 184
+      "n": 185
     },
     {
       "year": 2023,
-      "n": 142
+      "n": 140
     },
     {
       "year": 2024,
-      "n": 134
+      "n": 135
     },
     {
       "year": 2025,
-      "n": 143
+      "n": 146
     },
     {
       "year": 2026,
-      "n": 110
+      "n": 139
     }
   ],
   "papers": [
@@ -47,7 +47,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "PloS one",
       "year": "2020",
-      "citations": 533,
+      "citations": 543,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UeHWp8X0CEIC"
     },
     {
@@ -56,7 +56,7 @@
       "authors": "P Wicke, MM Bolognesi",
       "venue": "Frontiers in Communication",
       "year": "2021",
-      "citations": 119,
+      "citations": 123,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:eQOLeE2rZwMC"
     },
     {
@@ -69,22 +69,31 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:IjCSPb-OGe4C"
     },
     {
-      "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
-      "id": "Wp0gIr-vW9MC",
-      "authors": "P Wicke, MM Bolognesi",
-      "venue": "PLoS One",
-      "year": "2025",
-      "citations": 30,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
-    },
-    {
       "title": "LoHoRavens: A Long-Horizon Language-Conditioned Benchmark for Robotic Tabletop Manipulation",
       "id": "Zph67rFs4hoC",
       "authors": "S Zhang, P Wicke, LK \u015eenel, L Figueredo, A Naceri, S Haddadin, B Plank, ...",
       "venue": "Conference on Neural Information Process, 6th Robot Learning Workshop",
       "year": "2023",
-      "citations": 26,
+      "citations": 35,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Zph67rFs4hoC"
+    },
+    {
+      "title": "Red and blue language: Word choices in the Trump and Harris 2024 presidential debate",
+      "id": "Wp0gIr-vW9MC",
+      "authors": "P Wicke, MM Bolognesi",
+      "venue": "PLoS One",
+      "year": "2025",
+      "citations": 33,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Wp0gIr-vW9MC"
+    },
+    {
+      "title": "A crosslingual investigation of conceptualization in 1335 languages",
+      "id": "aqlVkmm33-oC",
+      "authors": "Y Liu, H Ye, L Weissweiler, P Wicke, R Pei, R Zangenfeind, H Sch\u00fctze",
+      "venue": "arXiv",
+      "year": "2023",
+      "citations": 22,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:aqlVkmm33-oC"
     },
     {
       "title": "Immune moral models? Pro-social rule breaking as a moral enhancement approach for ethical AI",
@@ -105,15 +114,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9yKSN-GCB0IC"
     },
     {
-      "title": "A crosslingual investigation of conceptualization in 1335 languages",
-      "id": "aqlVkmm33-oC",
-      "authors": "Y Liu, H Ye, L Weissweiler, P Wicke, R Pei, R Zangenfeind, H Sch\u00fctze",
-      "venue": "arXiv",
-      "year": "2023",
-      "citations": 20,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:aqlVkmm33-oC"
-    },
-    {
       "title": "The show must go on: On the use of embodiment, space and gesture in computational storytelling",
       "id": "Y0pCki6q_DkC",
       "authors": "P Wicke, T Veale",
@@ -123,22 +123,22 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:Y0pCki6q_DkC"
     },
     {
-      "title": "Exploring Spatial Schema Intuitions in Large Language and Vision Models",
-      "id": "YOwf2qJgpHMC",
-      "authors": "P Wicke, L Wachowiak",
-      "venue": "Findings of ACL",
-      "year": "2024",
-      "citations": 15,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC"
-    },
-    {
       "title": "Ideograms as semantic primes: Emoji in computational linguistic creativity",
       "id": "u5HHmVD_uO8C",
       "authors": "P Wicke",
       "venue": "Unpublished dissertation",
       "year": "2017",
-      "citations": 15,
+      "citations": 17,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u5HHmVD_uO8C"
+    },
+    {
+      "title": "Exploring Spatial Schema Intuitions in Large Language and Vision Models",
+      "id": "YOwf2qJgpHMC",
+      "authors": "P Wicke, L Wachowiak",
+      "venue": "Findings of ACL",
+      "year": "2024",
+      "citations": 16,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:YOwf2qJgpHMC"
     },
     {
       "title": "Creative action at a distance: A conceptual framework for embodied performance with robotic actors",
@@ -164,7 +164,7 @@
       "authors": "P Wicke",
       "venue": "Findings of ACL",
       "year": "2023",
-      "citations": 11,
+      "citations": 12,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:8k81kl-MbHgC"
     },
     {
@@ -186,6 +186,15 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:WF5omc3nYNoC"
     },
     {
+      "title": "Time course mechinterp: Analyzing the evolution of components and knowledge in large language models",
+      "id": "9ZlFYXVOiuMC",
+      "authors": "AD Hakimi, A Modarressi, P Wicke, H Sch\u00fctze",
+      "venue": "Findings of ACL",
+      "year": "2025",
+      "citations": 8,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9ZlFYXVOiuMC"
+    },
+    {
       "title": "Covid-19 discourse on twitter: How the topics, sentiments, subjectivity, and figurative frames changed over time. Frontiers in Communication, 6, 651997",
       "id": "dhFuZR0502QC",
       "authors": "P Wicke, MM Bolognesi",
@@ -202,15 +211,6 @@
       "year": "2018",
       "citations": 7,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:u-x6o8ySG0sC"
-    },
-    {
-      "title": "Time course mechinterp: Analyzing the evolution of components and knowledge in large language models",
-      "id": "9ZlFYXVOiuMC",
-      "authors": "AD Hakimi, A Modarressi, P Wicke, H Sch\u00fctze",
-      "venue": "Findings of ACL",
-      "year": "2025",
-      "citations": 6,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:9ZlFYXVOiuMC"
     },
     {
       "title": "Show, Don't (Just) Tell: Embodiment and Spatial Metaphor in Computational Story-Telling.",
@@ -258,13 +258,31 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:3fE2CSJIrl8C"
     },
     {
+      "title": "Using Analogical Reasoning to Prompt LLMs for their Intuitions of Abstract Spatial Schemas",
+      "id": "M3ejUd6NZC8C",
+      "authors": "P Wicke, L Hirlimann, JM Cunha",
+      "venue": "Proceedings of the IJCAI First Workshop on Analogical Abstraction in",
+      "year": "2024",
+      "citations": 2,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:M3ejUd6NZC8C"
+    },
+    {
       "title": "An Approach for Text-to-Emoji Translation",
       "id": "zYLM7Y9cAGgC",
       "authors": "P Wicke, JM Cunha",
       "venue": "ICCC'20 International Conference on Computational Creativity",
       "year": "2020",
-      "citations": 3,
+      "citations": 2,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:zYLM7Y9cAGgC"
+    },
+    {
+      "title": "From Interlocutor to Cognitive Extension: Brain-Computer Interface as a Step Beyond Dialogue in Conversational AI",
+      "id": "hC7cP41nSMkC",
+      "authors": "L Mihi\u0107 Zidar, P Bhatia, P Wicke",
+      "venue": "Proceedings of the 8th ACM Conference on Conversational User Interfaces",
+      "year": "2026",
+      "citations": 1,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:hC7cP41nSMkC"
     },
     {
       "title": "Decoding Workload and Agreement From EEG During Spoken Dialogue With Conversational AI",
@@ -285,15 +303,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:L8Ckcad2t8MC"
     },
     {
-      "title": "Using Analogical Reasoning to Prompt LLMs for their Intuitions of Abstract Spatial Schemas",
-      "id": "M3ejUd6NZC8C",
-      "authors": "P Wicke, L Hirlimann, JM Cunha",
-      "venue": "Proceedings of the IJCAI First Workshop on Analogical Abstraction in",
-      "year": "2024",
-      "citations": 1,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:M3ejUd6NZC8C"
-    },
-    {
       "title": "The Role of Gestures and Movement in Computational, Embodied Storytelling.",
       "id": "Se3iqnhoufwC",
       "authors": "P Wicke",
@@ -312,13 +321,13 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:roLk4NBRz8UC"
     },
     {
-      "title": "From Interlocutor to Cognitive Extension: Brain-Computer Interface as a Step Beyond Dialogue in Conversational AI",
-      "id": "hC7cP41nSMkC",
-      "authors": "L Mihi\u0107 Zidar, P Bhatia, P Wicke",
-      "venue": "Proceedings of the 8th ACM Conference on Conversational User Interfaces",
+      "title": "Toward a Neuroadaptive Storyteller: Does Designed Narrative Suspense Drive Audience Physiology?",
+      "id": "TQgYirikUcIC",
+      "authors": "LM Zidar, P Wicke, M Klug, TO Zander",
+      "venue": "2026 14th International Conference on Affective Computing and Intelligent",
       "year": "2026",
       "citations": 0,
-      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:hC7cP41nSMkC"
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:TQgYirikUcIC"
     },
     {
       "title": "Proceedings of the 15th Workshop on Cognitive Modeling and Computational Linguistics",
@@ -328,6 +337,15 @@
       "year": "2026",
       "citations": 0,
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:mB3voiENLucC"
+    },
+    {
+      "title": "Neuroadaptive Robotic Control: Integrating Synthetic Neural Signal and Embodied Reasoning for a VLA Policy",
+      "id": "HDshCWvjkbEC",
+      "authors": "P Bhatia, L Becker, R Lutz, LM Zidar, M Klug, TO Zander, P Wicke",
+      "venue": "The Fifth Neuroadaptive Technology Conference",
+      "year": "2026",
+      "citations": 0,
+      "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:HDshCWvjkbEC"
     },
     {
       "title": "Testing Spatial Intuitions of Humans and Large Language and Multimodal Models in Analogies",
@@ -420,6 +438,6 @@
       "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qEXBDy4AAAAJ&pagesize=100&citation_for_view=qEXBDy4AAAAJ:UebtZRa9Y70C"
     }
   ],
-  "updated": "2026-09-28",
+  "updated": "2026-11-22",
   "source": "scholar"
 }

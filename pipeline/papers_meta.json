@@ -317,15 +317,6 @@
   ],
   "explanation": "Gives a robot actor emotional reactions to its lines, letting it interpret a script and choose its own metaphors, blends, and ironic touches rather than merely reciting."
  },
- "xtra-neuroadaptive-storyteller": {
-  "authors": [
-   "L. Mihić Zidar",
-   "P. Wicke",
-   "M. Klug",
-   "T. O. Zander"
-  ],
-  "explanation": "Asks whether suspense deliberately written into a story shows up in the audience's bodily signals as they listen."
- },
  "hC7cP41nSMkC": {
   "authors": [
    "L. Mihić Zidar",
@@ -348,5 +339,27 @@
   ],
   "venue": "CMCL Workshop 2026",
   "explanation": "Collects the 26 papers of the 2026 CMCL workshop, where researchers compare human and machine language processing, from real-time reading to language acquisition."
+ },
+ "TQgYirikUcIC": {
+  "authors": [
+   "L. Mihić Zidar",
+   "P. Wicke",
+   "M. Klug",
+   "T. O. Zander"
+  ],
+  "explanation": "Asks whether suspense deliberately written into a story shows up in the audience's bodily signals as they listen.",
+  "venue": "ACII 2026 Late-Breaking Research"
+ },
+ "HDshCWvjkbEC": {
+  "authors": [
+   "P. Bhatia",
+   "L. Becker",
+   "R. Lutz",
+   "L. Mihić Zidar",
+   "M. Klug",
+   "T. O. Zander",
+   "P. Wicke"
+  ],
+  "explanation": "In a robot simulation, a simulated brain signal from an onlooker flags a mistake, and a language model reads the robot's own reasoning to give it a corrected instruction mid-task."
  }
 }
