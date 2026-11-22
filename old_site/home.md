@@ -16,6 +16,8 @@ Research Activities
 
 2027 - April | Dagstuhl Seminar 27162 "Analogical Abstraction: Modeling and Applications", Schloss Dagstuhl, Wadern, Germany. Invited participant.
 
+2027 - March | Interdisciplinary College 2027 "Trust, Hope and Responsible Action" - IK'27. Invited Speaker.
+
 2026 - November | AI Director at Neuro-Tech Startup Zander Labs. Role change.
 
 2026 - October | Long Horizon Physical AI Summit 2026, hosted by Encord, Fort Mason Center, San Francisco, USA. Demonstrator.
@@ -272,6 +274,7 @@ Research Activities
 - [Zander Labs](https://www.zanderlabs.com/)
 - [DHBW AI Transfer Congress](https://www.dhbw.de/die-dhbw/dhbw-ai-transfer-congress)
 - [Conference on Neuroadaptive Technology](https://neuroadaptive.org/conference/2026/)
+- [Interdisciplinary College 2027 "Trust, Hope and Responsible Action"](https://interdisciplinary-college.org/)
 - [Interdisciplinary College 2026](https://interdisciplinary-college.org/)
 - [Qualia](https://qualiastudios.dev/)
 - [AURYAL](https://auryal.com/)
